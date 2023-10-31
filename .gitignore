@@ -1,0 +1,11 @@
+*.fasl
+*~
+.#*
+auto
+/project-2-report.aux
+/project-2-report.log
+/project-2-report.out
+/project-2-report.pdf
+/project-2-report.fdb_latexmk
+/project-2-report.fls
+/project-2-report.synctex.gz
