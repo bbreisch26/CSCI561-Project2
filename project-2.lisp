@@ -251,8 +251,10 @@ That is: T"
 (defun %dist-or-and-1 (literals and-exp)
   (assert (every #'lit-p literals))
   (assert (cnf-p and-exp))
-  `(or ,@literals ,and-exp)
-  (TODO '%dist-or-and-1))
+  `(and ,@(map 'list
+	       #'( lambda(exp) (append exp literals))
+	       (cdr and-exp)))
+  )
 
 ;; Distribute OR over two AND expressions:
 ;;
