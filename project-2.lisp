@@ -123,38 +123,33 @@ If LIST already contains ELEMENT, LIST is returned unchanged"
                      (:implies
                       (destructuring-bind (a b) args
 			(if truth
-			    (or (visit a (not truth)) (visit b truth))
-		            (and (visit a truth) (visit b (not truth))))))
+			    `(or ,(visit a (not truth)) ,(visit b truth))
+		            `(and ,(visit a (not truth)) ,(visit b truth)))))
                      (:xor
                       (destructuring-bind (a b) args
 			(if truth
-			    (and (or (visit a truth) (visit b truth))
-			         (or (visit a (not truth)) (visit b (not truth))))
-			    (or (and (visit a (not truth)) (visit b (not truth)))
-				(and (visit a truth) (visit b truth))))))
+			    `(and (or ,(visit a truth) ,(visit b truth))
+			         (or ,(visit a (not truth)) ,(visit b (not truth))))
+			    `(or (and ,(visit a truth) ,(visit b truth))
+				(and ,(visit a (not truth)) ,(visit b (not truth)))))))
                      (:iff
                       (destructuring-bind (a b) args
 			(if truth
-                             (and (or (visit a (not truth)) (visit b truth))
-			          (or (visit a truth) (visit b (not truth))))
-			     (or (and (visit a truth) (visit b (not truth)))
-				 (and (visit a (not truth)) (visit b truth))))))
+                             `(and (or ,(visit a (not truth)) ,(visit b truth))
+			          (or ,(visit a truth) ,(visit b (not truth))))
+			     `(or (and ,(visit a (not truth)) ,(visit b truth))
+				 (and  ,(visit b (not truth)) ,(visit a truth))))))
                      (not
                       (assert (and args (null (cdr args))))
                       (visit (car args) (not truth)))
                      (and
 		      (if truth
-			  `(and ,@(map 'list
-				       #'visit (args truth)))
-			  `(or ,@(map 'list
-				       #'visit (args (not truth))))))
-						   
+			  `(and ,@(map 'list (lambda (x) (visit x truth)) args))
+			  `(or ,@(map 'list (lambda (x) (visit x truth)) args))))
                      (or
 		      (if truth
-			  `(and ,@(map 'list
-				       #'visit (args truth)))
-                          `(or ,@(map 'list
-                                       #'visit (args (not truth)))))) 
+			  `(or ,@(map 'list (lambda (x) (visit x truth)) args))   
+                          `(and ,@(map 'list (lambda (x) (visit x truth)) args))))   
                      (otherwise
                       (base e truth)))))))
 
