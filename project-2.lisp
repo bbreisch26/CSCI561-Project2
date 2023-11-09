@@ -78,13 +78,13 @@ If LIST already contains ELEMENT, LIST is returned unchanged"
 (defun nnf-p (e)
   "Is expression in negation normal form?"
   (labels ((visit (e)
-             (or (const-p e)
-                 (lit-p e)
-                 (destructuring-bind (op &rest args) e
-                   (case op
-                     ((and or)
-                      (every #'visit args))
-                     (otherwise nil))))))
+                  (or (const-p e)
+                      (lit-p e)
+                      (destructuring-bind (op &rest args) e
+                        (case op
+                          ((and or)
+                           (every #'visit args))
+                          (otherwise nil))))))
     (visit e)))
 
 
@@ -112,46 +112,46 @@ If LIST already contains ELEMENT, LIST is returned unchanged"
 (defun exp->nnf (e)
   "Convert an expression to negation normal form."
   (labels ((base (e truth)
-             (if truth
-                 e
-                 `(not ,e)))
+                 (if truth
+                     e
+                     `(not ,e)))
            (visit (e truth)
-             (if (var-p e)
-                 (base e truth)
-                 (destructuring-bind (op &rest args) e
-                   (case op
-                     (:implies
-                      (destructuring-bind (a b) args
-			(if truth
-			    `(or ,(visit a (not truth)) ,(visit b truth))
-		            `(and ,(visit a (not truth)) ,(visit b truth)))))
-                     (:xor
-                      (destructuring-bind (a b) args
-			(if truth
-			    `(and (or ,(visit a truth) ,(visit b truth))
-			         (or ,(visit a (not truth)) ,(visit b (not truth))))
-			    `(or (and ,(visit a truth) ,(visit b truth))
-				(and ,(visit a (not truth)) ,(visit b (not truth)))))))
-                     (:iff
-                      (destructuring-bind (a b) args
-			(if truth
-                             `(and (or ,(visit a (not truth)) ,(visit b truth))
-			          (or ,(visit a truth) ,(visit b (not truth))))
-			     `(or (and ,(visit a (not truth)) ,(visit b truth))
-				 (and  ,(visit b (not truth)) ,(visit a truth))))))
-                     (not
-                      (assert (and args (null (cdr args))))
-                      (visit (car args) (not truth)))
-                     (and
-		      (if truth
-			  `(and ,@(map 'list (lambda (x) (visit x truth)) args))
-			  `(or ,@(map 'list (lambda (x) (visit x truth)) args))))
-                     (or
-		      (if truth
-			  `(or ,@(map 'list (lambda (x) (visit x truth)) args))   
-                          `(and ,@(map 'list (lambda (x) (visit x truth)) args))))   
-                     (otherwise
-                      (base e truth)))))))
+                  (if (var-p e)
+                      (base e truth)
+                      (destructuring-bind (op &rest args) e
+                        (case op
+                          (:implies
+                           (destructuring-bind (a b) args
+                             (if truth
+                                 `(or ,(visit a (not truth)) ,(visit b truth))
+                                 `(and ,(visit a (not truth)) ,(visit b truth)))))
+                          (:xor
+                           (destructuring-bind (a b) args
+                             (if truth
+                                 `(and (or ,(visit a truth) ,(visit b truth))
+                                       (or ,(visit a (not truth)) ,(visit b (not truth))))
+                                 `(or (and ,(visit a truth) ,(visit b truth))
+                                      (and ,(visit a (not truth)) ,(visit b (not truth)))))))
+                          (:iff
+                           (destructuring-bind (a b) args
+                             (if truth
+                                 `(and (or ,(visit a (not truth)) ,(visit b truth))
+                                       (or ,(visit a truth) ,(visit b (not truth))))
+                                 `(or (and ,(visit a (not truth)) ,(visit b truth))
+                                      (and ,(visit b (not truth)) ,(visit a truth))))))
+                          (not
+                           (assert (and args (null (cdr args))))
+                           (visit (car args) (not truth)))
+                          (and
+                           (if truth
+                               `(and ,@(map 'list (lambda (x) (visit x truth)) args))
+                               `(or ,@(map 'list (lambda (x) (visit x truth)) args))))
+                          (or
+                           (if truth
+                               `(or ,@(map 'list (lambda (x) (visit x truth)) args))
+                               `(and ,@(map 'list (lambda (x) (visit x truth)) args))))
+                          (otherwise
+                           (base e truth)))))))
 
     (visit e t)))
 
@@ -165,7 +165,7 @@ If LIST already contains ELEMENT, LIST is returned unchanged"
   (and (and-p e)
        (every (lambda (e) (and (or-p e)
                                (every #'lit-p (cdr e))))
-              (cdr e))))
+           (cdr e))))
 
 ;; Sorting is useful to remove redundant (equivalent) clauses from
 ;; expressions
@@ -173,24 +173,24 @@ If LIST already contains ELEMENT, LIST is returned unchanged"
   "Sort list of variables in lexicographic order."
   (assert (every #'var-p vars))
   (remove-duplicates
-   (sort (copy-list vars)
-         (lambda (x y) (string< (string x) (string y))))))
+      (sort (copy-list vars)
+          (lambda (x y) (string< (string x) (string y))))))
 
 (defun maxterm (args)
   "Construct a Maxterm (an OR of literals).
 Every argument must be a literal or (recursively) an OR of literals."
   (let (pos neg)
     (labels ((visit (e)
-               (cond
-                 ((var-p e)
-                  (push e pos))
-                 ((not-p e)
-                  (assert (lit-p e))
-                  (push (second e) neg))
-                 ((or-p e)
-                  (map nil #'visit (cdr e)))
-                 (t
-                  (error "Invalid exp: ~A" e)))))
+                    (cond
+                     ((var-p e)
+                       (push e pos))
+                     ((not-p e)
+                       (assert (lit-p e))
+                       (push (second e) neg))
+                     ((or-p e)
+                       (map nil #'visit (cdr e)))
+                     (t
+                       (error "Invalid exp: ~A" e)))))
       (map nil #'visit args))
     (if (intersection pos neg)
         t
@@ -200,7 +200,7 @@ Every argument must be a literal or (recursively) an OR of literals."
 (defun maxterm-p (x)
   "Is X a maxterm?"
   (and (consp x)
-       (eq 'or (car x) )
+       (eq 'or (car x))
        (every #'lit-p (cdr x))))
 
 (defun maxterm-unit-p (x)
@@ -266,9 +266,8 @@ That is: T"
   (assert (every #'lit-p literals))
   (assert (cnf-p and-exp))
   `(and ,@(map 'list
-	       #'( lambda(exp) (append exp literals))
-	       (cdr and-exp)))
-  )
+              #'(lambda (exp) (append exp literals))
+            (cdr and-exp))))
 
 ;; Distribute OR over two AND expressions:
 ;;
@@ -279,8 +278,12 @@ That is: T"
 (defun %dist-or-and-and (and-exp-1 and-exp-2)
   (assert (cnf-p and-exp-1))
   (assert (cnf-p and-exp-2))
-  `(or ,and-exp-1 ,and-exp-2)
-  (TODO '%dist-or-and-and))
+  (let ((and-exp-1-ors (cdr and-exp-1))
+        (and-exp-2-ors (cdr and-exp-2)))
+    `(and ,@(map 'list #'(lambda (exp-1-or)
+                           (let ((exp-1-or-terms (cdr exp-1-or)))
+                             (map 'list #'(lambda (exp-2-or) ((let ((exp-2-or-terms (cdr exp-2-or)))
+                                                                `(or ,@exp-1-or-terms ,@exp-2-or-terms)))) and-exp-2-ors)) and-exp-1-ors)))))
 
 ;; Distribute n-ary OR over the AND arguments:
 ;;
@@ -296,9 +299,9 @@ That is: T"
   (if literals
       (if and-exps
           (fold #'%dist-or-and-and
-                  (%dist-or-and-1 literals (car and-exps))
-                  (cdr and-exps))
-          (let ((maxterm  (maxterm literals)))
+                (%dist-or-and-1 literals (car and-exps))
+                (cdr and-exps))
+          (let ((maxterm (maxterm literals)))
             (if (maxterm-true-p maxterm)
                 '(and)
                 `(and ,maxterm))))
@@ -315,15 +318,15 @@ That is: T"
   (let ((literals)
         (and-args))
     (labels ((visit (e)
-               (cond
-                 ((lit-p e)
-                  (push e literals))
-                 ((or-p e)
-                  (map nil #'visit (cdr e)))
-                 ((and-p e)
-                  (let ((e (cnf-and e)))
-                    (assert (cnf-p e))
-                    (push e and-args))))))
+                    (cond
+                     ((lit-p e)
+                       (push e literals))
+                     ((or-p e)
+                       (map nil #'visit (cdr e)))
+                     ((and-p e)
+                       (let ((e (cnf-and e)))
+                         (assert (cnf-p e))
+                         (push e and-args))))))
       (map nil #'visit (cdr e)))
     (%dist-or-and-n literals and-args)))
 
@@ -332,16 +335,16 @@ That is: T"
   (assert (nnf-p e))
   (assert (and-p e))
   (labels ((visit (args e)
-             (cond
-               ((lit-p e)
-                (cons `(or ,e) args))
-               ((or-p e)
-                (let ((e (cnf-or e)))
-                  (assert (cnf-p e))
-                  (append (cdr e)
-                          args)))
-               ((and-p e)
-                (fold #'visit args (cdr e))))))
+                  (cond
+                   ((lit-p e)
+                     (cons `(or ,e) args))
+                   ((or-p e)
+                     (let ((e (cnf-or e)))
+                       (assert (cnf-p e))
+                       (append (cdr e)
+                         args)))
+                   ((and-p e)
+                     (fold #'visit args (cdr e))))))
     (cons 'and (visit nil e))))
 
 (defun nnf->cnf (e)
@@ -351,9 +354,9 @@ That is: T"
         ((and-p e) (cnf-and e))
         ((or-p e) (cnf-or e))
         ((eq e t)
-         '(and))
+          '(and))
         ((null e)
-         '(and (or)))
+          '(and (or)))
         (t (error "Invalid expression: ~A" e))))
 
 
@@ -373,11 +376,11 @@ Returns: (OR t nil)"
   (every (lambda (maxterm)
            (some (lambda (arg)
                    (find arg bindings :test #'equal))
-                 (cdr maxterm)))
-         maxterms))
+               (cdr maxterm)))
+      maxterms))
 
 (defun maxterm-bind (maxterm literal)
-"Bind a literal in maxterm.
+  "Bind a literal in maxterm.
 Returns: new-maxterm"
   (assert (maxterm-p maxterm))
   (assert (lit-p literal))
@@ -386,24 +389,24 @@ Returns: new-maxterm"
         `(or ,@(remove (not-exp literal) args :test #'equal)))))
 
 (defun dpll-bind (maxterms literal bindings)
-"Bind a literal in the maxterms list.
+  "Bind a literal in the maxterms list.
 Returns: (VALUES maxterms (CONS literal bindings))"
   (assert (every #'maxterm-p maxterms))
   (assert (lit-p literal))
   (assert (every #'lit-p bindings))
   (labels ((rec (new-terms rest)
-             (if rest
-                 (let ((new-term (maxterm-bind (car rest) literal)))
-                   (cond
-                     ((maxterm-false-p new-term)    ; short-circuit
-                      (values (list new-term) nil))
-                     ((eq t new-term)               ; cancel-out true term
-                      (rec new-terms (cdr rest)))
-                     (t                             ; add new term
-                      (rec (cons new-term new-terms)
-                           (cdr rest)))))
-                 ;; end of terms
-                 (values new-terms (cons literal bindings)))))
+                (if rest
+                    (let ((new-term (maxterm-bind (car rest) literal)))
+                      (cond
+                       ((maxterm-false-p new-term) ; short-circuit
+                                                  (values (list new-term) nil))
+                       ((eq t new-term) ; cancel-out true term
+                                       (rec new-terms (cdr rest)))
+                       (t ; add new term
+                         (rec (cons new-term new-terms)
+                              (cdr rest)))))
+                    ;; end of terms
+                    (values new-terms (cons literal bindings)))))
     (rec nil maxterms)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -411,7 +414,7 @@ Returns: (VALUES maxterms (CONS literal bindings))"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun dpll-unit-propagate (maxterms bindings)
-"DPLL unit propogation.
+  "DPLL unit propogation.
 Returns: (VALUES maxterms (LIST bindings-literals...))"
   (assert (every #'maxterm-p maxterms))
   (assert (every #'lit-p bindings))
@@ -425,30 +428,30 @@ RETURNS: a literal"
   (assert (every #'maxterm-p maxterms))
   (let ((term (cadar maxterms)))
     (cond ((var-p term)
-           term)
+            term)
           ((not-p term)
-           (assert (var-p (second term)))
-           (second term))
+            (assert (var-p (second term)))
+            (second term))
           (t
-           (error "Unrecognized thing: ~A" term)))))
+            (error "Unrecognized thing: ~A" term)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;; Part 1.b: DPLL ;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (defun dpll (maxterms bindings)
-"Recursive DPLL routine.
+  "Recursive DPLL routine.
 Returns: (VALUES (OR T NIL) (LIST bindings-literals...))"
   (assert (every #'maxterm-p maxterms))
   (assert (every #'lit-p bindings))
   (multiple-value-bind (maxterms bindings)
       (dpll-unit-propagate maxterms bindings)
     (cond
-      ((every #'maxterm-true-p maxterms) ; Base case: all maxterms canceled true, i.e., (AND)
-       (values t bindings))
-      ((some #'maxterm-false-p maxterms) ; Base case: some maxterm is false
-       (values nil bindings))
-      (t ; Recursive case
+     ((every #'maxterm-true-p maxterms) ; Base case: all maxterms canceled true, i.e., (AND)
+                                       (values t bindings))
+     ((some #'maxterm-false-p maxterms) ; Base case: some maxterm is false
+                                       (values nil bindings))
+     (t ; Recursive case
        (TODO 'dpll)))))
 
 (defun sat-p (e)
@@ -458,5 +461,5 @@ Returns: (VALUES (OR T NIL) (LIST bindings-literals...))"
         (dpll maxterms nil)
       ;; sanity checking
       (when is-sat
-        (assert (check-bindings maxterms bindings)))
+            (assert (check-bindings maxterms bindings)))
       (values is-sat bindings))))
