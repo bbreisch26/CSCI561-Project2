@@ -428,8 +428,24 @@ Returns: (VALUES maxterms (LIST bindings-literals...))"
   (assert (every #'maxterm-p maxterms))
   (assert (every #'lit-p bindings))
   ;; HINT: use DPLL-BIND
-  (TODO 'dpll-unit-propagate))
-
+  ;; if maxterm o has some unit clause with binding b
+  ;;     new maxterm = bind b in o to make unit clause true
+  ;;    return unit-propagate(o')
+  ;; else
+  ;;    return o
+  (labels ((rec (rest)
+	     (if (consp rest) ;; if terms left in maxterm
+		 (destructuring-bind (x &rest rest) rest
+		   (if (maxterm-unit-p x) ;; if car? is unit clause
+		       (progn
+			 ;; if unit clause is a NOT clause
+			 (if (eq (not-p x) t)
+			     ;;multiple-value-call used because we return (values maxterms bindings) which returns multiple values
+			     (multiple-value-call #'dpll-unit-propagate maxterms (dpll-bind maxterms (cons (second x) nil) bindings)) ;; bind literal to F
+			     (multiple-value-call #'dpll-unit-propagate maxterms (dpll-bind maxterms (cons (cdr x) t) bindings)))) ;; bind literal to T
+		       (rec rest))) ;; recurse on rest of maxterms 
+		 (values maxterms bindings))))
+    (rec maxterms)))
 
 (defun dpll-choose-literal (maxterms)
   "Very simple implementation to choose a branching literal.
