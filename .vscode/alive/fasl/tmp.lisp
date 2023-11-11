@@ -288,11 +288,10 @@ That is: T"
                              ; For every or expression from the 2nd and
                              (map 'list #'(lambda (exp-2-or)
                                             ; Extract the terms inside the 2nd or expressions
-                                            ((let ((exp-2-or-terms (cdr exp-2-or)))
+                                            (let ((exp-2-or-terms (cdr exp-2-or)))
                                                ; Combine the terms of both or expressions and prepend with or
-                                               `(or ,@exp-1-or-terms ,@exp-2-or-terms))))
-                               and-exp-2-ors))
-                           and-exp-1-ors)))))
+                                               `(or ,@exp-1-or-terms ,@exp-2-or-terms)))
+                               and-exp-2-ors))) and-exp-1-ors))))
 
 ;; Distribute n-ary OR over the AND arguments:
 ;;
