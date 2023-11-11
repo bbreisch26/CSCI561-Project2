@@ -474,9 +474,9 @@ Returns: (VALUES (OR T NIL) (LIST bindings-literals...))"
                                        (values nil bindings))
      (t ; Recursive case
       (let* ((v (dpll-choose-literal maxterms)))
-	(if (dpll (and maxterms v) (cons v bindings))
-	    (values t (cons v bindings))
-	    (dpll (and maxterms (not v)) (cons (not v) bindings))
+	(if (multiple-value-call #'dpll (dpll-bind maxterms v bindings))
+	    (values t bindings)
+	    (multiple-value-call #'dpll (dpll-bind maxterms (not v) bindings))
 	    ))))))
 
 (defun sat-p (e)
