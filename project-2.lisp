@@ -437,8 +437,8 @@ Returns: (VALUES maxterms (LIST bindings-literals...))"
 			 ;; if unit clause is a NOT clause
 			 (if (eq (not-p x) t)
 			     ;;multiple-value-call used because we return (values maxterms bindings) which returns multiple values
-			     (multiple-value-call #'dpll-unit-propagate maxterms (dpll-bind maxterms (cons (second x) nil) bindings)) ;; bind literal to F
-			     (multiple-value-call #'dpll-unit-propagate maxterms (dpll-bind maxterms (cons (cdr x) t) bindings)))) ;; bind literal to T
+			     (multiple-value-call #'dpll-unit-propagate (dpll-bind maxterms (second x) bindings)) ;; bind literal to F
+			     (multiple-value-call #'dpll-unit-propagate (dpll-bind maxterms (second x) bindings)))) ;; bind literal to T
 		       (rec rest))) ;; recurse on rest of maxterms 
 		 (values maxterms bindings))))
     (rec maxterms)))
@@ -473,7 +473,11 @@ Returns: (VALUES (OR T NIL) (LIST bindings-literals...))"
      ((some #'maxterm-false-p maxterms) ; Base case: some maxterm is false
                                        (values nil bindings))
      (t ; Recursive case
-       (TODO 'dpll)))))
+      (let* ((v (dpll-choose-literal maxterms)))
+	(if (dpll (and maxterms v) (cons v bindings))
+	    (values t (cons v bindings))
+	    (dpll (and maxterms (not v)) (cons (not v) bindings))
+	    ))))))
 
 (defun sat-p (e)
   "Check satisfiability of e."
