@@ -474,10 +474,12 @@ Returns: (VALUES (OR T NIL) (LIST bindings-literals...))"
                                        (values nil bindings))
      (t ; Recursive case
       (let* ((v (dpll-choose-literal maxterms)))
-	(if (multiple-value-call #'dpll (dpll-bind maxterms v bindings))
-	    (values t bindings)
+	(multiple-value-bind (satis new-bindings)
+	    (multiple-value-call #'dpll (dpll-bind maxterms v bindings))
+	(if satis
+	    (values satis new-bindings)
 	    (multiple-value-call #'dpll (dpll-bind maxterms (not v) bindings))
-	    ))))))
+	    )))))))
 
 (defun sat-p (e)
   "Check satisfiability of e."
