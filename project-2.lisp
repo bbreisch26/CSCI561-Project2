@@ -138,7 +138,7 @@ If LIST already contains ELEMENT, LIST is returned unchanged"
                                  `(and (or ,(visit a (not truth)) ,(visit b truth))
                                        (or ,(visit a truth) ,(visit b (not truth))))
                                  `(or (and ,(visit a (not truth)) ,(visit b truth))
-                                      (and ,(visit b (not truth)) ,(visit a truth))))))
+                                      (and ,(visit a truth) ,(visit b (not truth)))))))
                           (not
                            (assert (and args (null (cdr args))))
                            (visit (car args) (not truth)))
@@ -433,12 +433,8 @@ Returns: (VALUES maxterms (LIST bindings-literals...))"
 	     (if (consp rest) ;; if terms left in maxterm
 		 (destructuring-bind (x &rest rest) rest
 		   (if (maxterm-unit-p x) ;; if car? is unit clause
-		       (progn
-			 ;; if unit clause is a NOT clause
-			 (if (eq (not-p x) t)
 			     ;;multiple-value-call used because we return (values maxterms bindings) which returns multiple values
-			     (multiple-value-call #'dpll-unit-propagate (dpll-bind maxterms (second x) bindings)) ;; bind literal to F
-			     (multiple-value-call #'dpll-unit-propagate (dpll-bind maxterms (second x) bindings)))) ;; bind literal to T
+		       (multiple-value-call #'dpll-unit-propagate (dpll-bind maxterms (second x) bindings)) ;; bind literal
 		       (rec rest))) ;; recurse on rest of maxterms 
 		 (values maxterms bindings))))
     (rec maxterms)))
@@ -478,7 +474,7 @@ Returns: (VALUES (OR T NIL) (LIST bindings-literals...))"
 	    (multiple-value-call #'dpll (dpll-bind maxterms v bindings))
 	(if satis
 	    (values satis new-bindings)
-	    (multiple-value-call #'dpll (dpll-bind maxterms (not v) bindings))
+	    (multiple-value-call #'dpll (dpll-bind maxterms `(not ,v) bindings))
 	    )))))))
 
 (defun sat-p (e)

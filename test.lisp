@@ -30,7 +30,7 @@
 (test-case (sat-p '(and a b (:xor a b))) nil)
 (test-case (sat-p '(and (and a b) (:xor a b))) nil)
 (test-case (sat-p '(and (or a) (or (not a)))) nil)
-; (test-case (sat-p '(and (:xor a b) (:iff a b))) nil)
 (test-case (sat-p '(or (:xor a b) (:iff a b))) t)
 (test-case (sat-p '(and a (and a (and a (and a (not a)))))) nil)
 (test-case (sat-p '(and a (and a (and a (and a a))))) t)
+(test-case (sat-p '(and (:xor a b) (:iff a b))) nil)
