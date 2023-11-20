@@ -278,17 +278,21 @@ That is: T"
 (defun %dist-or-and-and (and-exp-1 and-exp-2)
   (assert (cnf-p and-exp-1))
   (assert (cnf-p and-exp-2))
-  ; Extract the or terms from the and expressions
   (let* ((and-exp-1-ors (cdr and-exp-1))
          (and-exp-2-ors (cdr and-exp-2))
+	 (out '())
+	 ;;cross product of and-exp-1 + and-exp-2
          (x-prod
-          (map 'list #'(lambda (exp-1-or)
-                         (map 'list #'(lambda (exp-2-or)
+	   (map 'list #'(lambda (exp-1-or)
+			  (map 'list #'(lambda (exp-2-or)
                                         `(or ,@(cdr exp-1-or) ,@(cdr exp-2-or)))
                            and-exp-2-ors))
-            and-exp-1-ors))
-         (x-prod-2 `(and ,@(nth 0 x-prod) ,@(nth 1 x-prod))))
-    x-prod-2))
+		and-exp-1-ors))
+	 ;;above code creates a nested list of expressions, need to flatten
+         (x-prod-2
+	   (dolist (exp x-prod out)
+	     (setq out (nconc out exp)))))
+    (cons 'and x-prod-2)))
 
 ;; Distribute n-ary OR over the AND arguments:
 ;;
