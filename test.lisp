@@ -38,7 +38,7 @@
 (test-case (sat-p '(and (or a (not b)) (or b (not c)) (or c (not a)))) t)
 (test-case (sat-p '(and (or a b c) (or (not a) (not b) (not c)))) t)
 (test-case (sat-p '(and (or a (not b)) (or b (not c)) (or c (not a)) (or a b c) (or (not a) (not b) (not c)))) nil)
-(test-case (sat-p '(and (or a b c) (or b (not c) (not f)) (or (not b e)))) t)
+(test-case (sat-p '(and (or a b c) (or b (not c) (not f)) (or (not b) e))) t)
 (test-case (sat-p '(and (or a b) (or a (not b)) (or (not a) c) (or (not a) (not c)))) nil)
 (test-case (sat-p '(and (or a (not b) c) (and a (or (not a) b) c))) t)
 (test-case (sat-p '(and (or a b c) (or (not a) b) (or a (not c)) (or (not b) c) (or (not a) (not b) (not c)))) nil)
