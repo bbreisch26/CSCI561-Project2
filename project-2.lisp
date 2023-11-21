@@ -280,16 +280,13 @@ That is: T"
   (assert (cnf-p and-exp-2))
   ; Extract the or terms from the and expressions
   (let* ((and-exp-1-ors (cdr and-exp-1))
-         (and-exp-2-ors (cdr and-exp-2))
-         (x-prod
-          (map 'list #'(lambda (exp-1-or)
-                         (map 'list #'(lambda (exp-2-or)
-                                        `(or ,@(cdr exp-1-or) ,@(cdr exp-2-or)))
-                           and-exp-2-ors))
-            and-exp-1-ors))
-         (x-prod-2 `(and ,@(nth 0 x-prod) ,@(nth 1 x-prod))))
-    x-prod-2))
-
+    (and-exp-2-ors (cdr and-exp-2))
+     (result))
+      (dolist (sublist1 and-exp-1-ors)
+	(dolist (sublist2 and-exp-2-ors)
+	  (push (cons 'or (append (cdr sublist1) (cdr sublist2))) result)))
+      `(and ,@result)))
+    
 ;; Distribute n-ary OR over the AND arguments:
 ;;
 ;; (or lit-0 ... lit-n
