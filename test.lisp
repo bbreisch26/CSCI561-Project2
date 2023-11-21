@@ -3,6 +3,7 @@
      (if (equal actual ,result)
 	 (format t "PASS")
 	 (format t "FAIL"))
+     (assert (eq actual ,result))
      (format t " ~a == ~a, got ~a~%" (quote ,test) ,result actual)))
 
 ;; test exp->nnf
