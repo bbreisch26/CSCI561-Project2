@@ -1,0 +1,3 @@
+("nnf" :PASS 25 :COUNT 25 :POINTS 25.0d0 :MAX 25)
+("sat" :PASS 25 :COUNT 25 :POINTS 25.0d0 :MAX 25)
+("total" :POINTS 50 :MAX 50)
