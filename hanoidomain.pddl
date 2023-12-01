@@ -2,7 +2,7 @@
 	(:predicates
 		(clear ?a)
 		(smaller ?a ?b)
-		(on ?a ?b)
+		(on ?a ?b))
 	(:action movedisk :parameters (?disk ?from ?to)
 		 :precondition (and (clear ?disk)
 		 	       	    (smaller ?disk ?to)
@@ -11,4 +11,4 @@
 		 :effect (and (on ?disk ?to)
 		 	      (clear ?from)
 			      (not (on ?disk ?from))
-			      (not (clear ?to))))))
+			      (not (clear ?to)))))
