@@ -12,6 +12,6 @@
 	       (smaller disk1 peg3)
 	       (smaller disk2 peg1)
 	       (smaller disk2 peg2)
-	       (smaller disk2 peg))
+	       (smaller disk2 peg3))
 	(:goal (and (on disk1 disk2) (on disk2 peg3))))
 	       

@@ -4,6 +4,6 @@
 	(:init (on disk1 peg1)
 	       (clear disk1)
 	       (clear peg2)
-	       (smaller peg1 disk1)
-	       (smaller peg2 disk1))
+	       (smaller disk1 peg1)
+	       (smaller disk1 peg2))
 	(:goal (on disk1 peg2)))
