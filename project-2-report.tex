@@ -130,131 +130,141 @@
 
     \begin{enumerate}
         \item Two Peg, One Disk \\
-        \listpddl{onediskplan.pddl}
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(movedisk disk1 peg1 peg2)
+        \end{lstlisting}
         \item Three Peg, Two Disk
-        \listpddl{twodiskplan.pddl}
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(movedisk disk1 disk2 peg2)
+(movedisk disk2 peg1 peg3)
+(movedisk disk1 peg2 disk2)
+        \end{lstlisting}
         \item Three Peg, Four Disk
-        \listpddl{fourdiskplan.pddl}
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(movedisk disk4 disk3 peg2)
+(movedisk disk3 disk2 peg3)
+(movedisk disk4 peg2 disk3)
+(movedisk disk2 disk1 peg2)
+(movedisk disk4 disk3 disk1)
+(movedisk disk3 peg3 disk2)
+(movedisk disk4 disk1 disk3)
+(movedisk disk1 peg1 peg3)
+(movedisk disk4 disk3 disk1)
+(movedisk disk3 disk2 peg1)
+(movedisk disk4 disk1 disk3)
+(movedisk disk2 peg2 disk1)
+(movedisk disk4 disk3 peg2)
+(movedisk disk3 peg1 disk2)
+(movedisk disk4 peg2 disk3)
+  \end{lstlisting}
     \end{enumerate}
 
     \item  Encode the three-peg, two-disk instance as a Boolean formula using the
     SATPlan method.  Please separately indicate the different parts of your
     encoding (start state, goal conditions, frame axioms, etc.).
+    \begin{enumerate}
+        \item Start State
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+clear_peg3-0
+smaller_disk2_peg2-0
+smaller_disk2_peg3-0
+smaller_disk2_peg2-0
+smaller_disk2_peg3-0
+...
+        \end{lstlisting}
+        \item Goal Conditions
+        \item Frame Axioms
+        \item Operator Encoding
+        \item Operator Exclusion
+    \end{enumerate} 
 
   \item Find the satisfying assignments for the three-peg, two-disk
     Boolean formula using your DPLL implementation.
     \begin{enumerate}
     \item What is the satisfying assignment?
-       \\Literals assignment is true if negated then false.
-\\(NOOP\_SMALLER\_DISK1\_PEG3\mbox{-}1 
-\\NOOP\_SMALLER\_DISK1\_PEG2\mbox{-}1 
-\\NOOP\_SMALLER\_DISK2\_PEG3\mbox{-}2
-\\NOOP\_SMALLER\_DISK2\_PEG2\mbox{-}1 
-\\ON\_DISK1\_PEG2\mbox{-}1 
-\\NOOP\_ON\_DISK1\_PEG2\mbox{-}2
-\\(NOT ON\_DISK1\_PEG3\mbox{-}2) 
-\\(NOT CLEAR\_PEG3\mbox{-}2) 
-\\NOOP\_CLEAR\_DISK2\mbox{-}2
-\\(NOT ON\_DISK1\_DISK2\mbox{-}1) 
-\\(NOT ON\_DISK1\_DISK2\mbox{-}2) 
-\\(NOT NOOP\_ON\_DISK1\_DISK2\mbox{-}1)
-\\(NOT ON\_DISK2\_PEG1\mbox{-}2) 
-\\(NOT CLEAR\_PEG2\mbox{-}1) 
-\\(NOT ON\_DISK2\_PEG2\mbox{-}2)
-\\(NOT NOOP\_CLEAR\_PEG2\mbox{-}1) 
-\\(NOT NOOP\_CLEAR\_PEG3\mbox{-}2) 
-\\NOOP\_ON\_DISK2\_PEG1\mbox{-}1
-\\(NOT MOVEDISK\_DISK1\_PEG2\_PEG3\mbox{-}2) 
-\\NOOP\_SMALLER\_DISK1\_DISK2\mbox{-}1
-\\(NOT MOVEDISK\_DISK2\_PEG1\_PEG2\mbox{-}2) 
-\\MOVEDISK\_DISK1\_DISK2\_PEG2\mbox{-}1
-\\(NOT MOVEDISK\_DISK1\_PEG2\_DISK2\mbox{-}2) 
-\\NOOP\_CLEAR\_DISK1\mbox{-}1
-\\(NOT NOOP\_ON\_DISK2\_PEG1\mbox{-}2) 
-\\NOOP\_SMALLER\_DISK2\_PEG3\mbox{-}1
-\\(NOT MOVEDISK\_DISK1\_DISK2\_PEG3\mbox{-}2) 
-\\CLEAR\_DISK2\mbox{-}1
-\\(NOT MOVEDISK\_DISK1\_DISK2\_PEG2\mbox{-}2) 
-\\SMALLER\_DISK2\_PEG3\mbox{-}1
-\\(NOT NOOP\_ON\_DISK1\_DISK2\mbox{-}2) 
-\\ON\_DISK2\_PEG1\mbox{-}1 
-\\MOVEDISK\_DISK2\_PEG1\_PEG3\mbox{-}2
-\\CLEAR\_DISK1\mbox{-}1
-\\NOOP\_CLEAR\_DISK1\mbox{-}2 
-\\SMALLER\_DISK1\_DISK2\mbox{-}1
-\\NOOP\_SMALLER\_DISK1\_DISK2\mbox{-}2 
-\\ON\_DISK2\_PEG3\mbox{-}2 
-\\NOOP\_ON\_DISK2\_PEG3\mbox{-}3 
-\\CLEAR\_DISK1\mbox{-}2
-\\(NOT MOVEDISK\_DISK1\_PEG3\_DISK2\mbox{-}3)
-\\SMALLER\_DISK1\_DISK2\mbox{-}2
-\\(NOT MOVEDISK\_DISK2\_PEG1\_PEG3\mbox{-}3) 
-\\ON\_DISK1\_PEG2\mbox{-}2 
-\\(NOT NOOP\_ON\_DISK1\_DISK2\mbox{-}3)
-\\CLEAR\_DISK2\mbox{-}2 
-\\MOVEDISK\_DISK1\_PEG2\_DISK2\mbox{-}3 
-\\(NOT MOVEDISK\_DISK1\_PEG3\_PEG2\mbox{-}2)
-\\(NOT NOOP\_ON\_DISK1\_PEG3\mbox{-}2) 
-\\(NOT MOVEDISK\_DISK1\_PEG3\_DISK2\mbox{-}2)
-\\(NOT ON\_DISK1\_PEG3\mbox{-}1) 
-\\(NOT MOVEDISK\_DISK1\_DISK2\_PEG3\mbox{-}1) 
-\\NOOP\_CLEAR\_PEG3\mbox{-}1
-\\CLEAR\_PEG3\mbox{-}1 
-\\(NOT MOVEDISK\_DISK2\_PEG2\_PEG3\mbox{-}3) 
-\\SMALLER\_DISK1\_PEG2\mbox{-}0
-\\SMALLER\_DISK1\_PEG3\mbox{-}0 
-\\SMALLER\_DISK1\_DISK2\mbox{-}0 
-\\ON\_DISK1\_DISK2\mbox{-}0 
-\\CLEAR\_DISK1\mbox{-}0
-\\ON\_DISK2\_PEG1\mbox{-}0 
-\\SMALLER\_DISK2\_PEG3\mbox{-}0
-\\CLEAR\_PEG2\mbox{-}0 
-\\SMALLER\_DISK2\_PEG2\mbox{-}0
-\\ON\_DISK1\_DISK2\mbox{-}3 
-\\CLEAR\_PEG3\mbox{-}0 
-\\ON\_DISK2\_PEG3\mbox{-}3)
+       \\If a literal is bound without a NOT clause, it is bound to true. If a literal is bound inside a NOT clause, it is bound to false.
+       \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(NOOP_SMALLER_DISK1_PEG3-1
+NOOP_SMALLER_DISK1_PEG2-1
+NOOP_SMALLER_DISK2_PEG3-2
+NOOP_SMALLER_DISK2_PEG2-1
+ON_DISK1_PEG2-1
+NOOP_ON_DISK1_PEG2-2
+(NOT ON_DISK1_PEG3-2)
+(NOT CLEAR_PEG3-2)
+NOOP_CLEAR_DISK2-2
+(NOT ON_DISK1_DISK2-1)
+(NOT ON_DISK1_DISK2-2)
+(NOT NOOP_ON_DISK1_DISK2-1)
+(NOT ON_DISK2_PEG1-2)
+(NOT CLEAR_PEG2-1)
+(NOT ON_DISK2_PEG2-2)
+(NOT NOOP_CLEAR_PEG2-1)
+(NOT NOOP_CLEAR_PEG3-2)
+NOOP_ON_DISK2_PEG1-1
+(NOT MOVEDISK_DISK1_PEG2_PEG3-2)
+NOOP_SMALLER_DISK1_DISK2-1
+(NOT MOVEDISK_DISK2_PEG1_PEG2-2)
+MOVEDISK_DISK1_DISK2_PEG2-1
+(NOT MOVEDISK_DISK1_PEG2_DISK2-2)
+NOOP_CLEAR_DISK1-1
+(NOT NOOP_ON_DISK2_PEG1-2)
+NOOP_SMALLER_DISK2_PEG3-1
+(NOT MOVEDISK_DISK1_DISK2_PEG3-2)
+CLEAR_DISK2-1
+(NOT MOVEDISK_DISK1_DISK2_PEG2-2)
+SMALLER_DISK2_PEG3-1
+(NOT NOOP_ON_DISK1_DISK2-2)
+ON_DISK2_PEG1-1
+MOVEDISK_DISK2_PEG1_PEG3-2
+CLEAR_DISK1-1
+NOOP_CLEAR_DISK1-2
+SMALLER_DISK1_DISK2-1
+NOOP_SMALLER_DISK1_DISK2-2
+ON_DISK2_PEG3-2
+NOOP_ON_DISK2_PEG3-3
+CLEAR_DISK1-2
+(NOT MOVEDISK_DISK1_PEG3_DISK2-3)
+SMALLER_DISK1_DISK2-2
+(NOT MOVEDISK_DISK2_PEG1_PEG3-3)
+ON_DISK1_PEG2-2
+(NOT NOOP_ON_DISK1_DISK2-3)
+CLEAR_DISK2-2
+MOVEDISK_DISK1_PEG2_DISK2-3
+(NOT MOVEDISK_DISK1_PEG3_PEG2-2)
+(NOT NOOP_ON_DISK1_PEG3-2)
+(NOT MOVEDISK_DISK1_PEG3_DISK2-2)
+(NOT ON_DISK1_PEG3-1)
+(NOT MOVEDISK_DISK1_DISK2_PEG3-1)
+NOOP_CLEAR_PEG3-1
+CLEAR_PEG3-1
+(NOT MOVEDISK_DISK2_PEG2_PEG3-3)
+SMALLER_DISK1_PEG2-0
+SMALLER_DISK1_PEG3-0
+SMALLER_DISK1_DISK2-0
+ON_DISK1_DISK2-0
+CLEAR_DISK1-0
+ON_DISK2_PEG1-0
+SMALLER_DISK2_PEG3-0
+CLEAR_PEG2-0
+SMALLER_DISK2_PEG2-0
+ON_DISK1_DISK2-3
+CLEAR_PEG3-0
+ON_DISK2_PEG3-3)
+
+\end{lstlisting}
 \item What is the corresponding plan?
-  \\(NOOP\_SMALLER\_DISK1\_PEG3\mbox{-}1 
-\\NOOP\_SMALLER\_DISK1\_PEG2\mbox{-}1 
-\\NOOP\_SMALLER\_DISK2\_PEG3\mbox{-}2
-\\NOOP\_SMALLER\_DISK2\_PEG2\mbox{-}1 
-\\ON\_DISK1\_PEG2\mbox{-}1 
-\\NOOP\_ON\_DISK1\_PEG2\mbox{-}2
-\\NOOP\_CLEAR\_DISK2\mbox{-}2
-\\NOOP\_ON\_DISK2\_PEG1\mbox{-}1
-\\NOOP\_SMALLER\_DISK1\_DISK2\mbox{-}1
-\\MOVEDISK\_DISK1\_DISK2\_PEG2\mbox{-}1
-\\NOOP\_CLEAR\_DISK1\mbox{-}1
-\\NOOP\_SMALLER\_DISK2\_PEG3\mbox{-}1
-\\CLEAR\_DISK2\mbox{-}1
-\\SMALLER\_DISK2\_PEG3\mbox{-}1
-\\ON\_DISK2\_PEG1\mbox{-}1 
-\\MOVEDISK\_DISK2\_PEG1\_PEG3\mbox{-}2
-\\CLEAR\_DISK1\mbox{-}1
-\\NOOP\_CLEAR\_DISK1\mbox{-}2 
-\\SMALLER\_DISK1\_DISK2\mbox{-}1
-\\NOOP\_SMALLER\_DISK1\_DISK2\mbox{-}2 
-\\ON\_DISK2\_PEG3\mbox{-}2 
-\\NOOP\_ON\_DISK2\_PEG3\mbox{-}3 
-\\CLEAR\_DISK1\mbox{-}2
-\\SMALLER\_DISK1\_DISK2\mbox{-}2
-\\ON\_DISK1\_PEG2\mbox{-}2 
-\\CLEAR\_DISK2\mbox{-}2 
-\\MOVEDISK\_DISK1\_PEG2\_DISK2\mbox{-}3 
-\\NOOP\_CLEAR\_PEG3\mbox{-}1
-\\CLEAR\_PEG3\mbox{-}1 
-\\SMALLER\_DISK1\_PEG2\mbox{-}0
-\\SMALLER\_DISK1\_PEG3\mbox{-}0 
-\\SMALLER\_DISK1\_DISK2\mbox{-}0 
-\\ON\_DISK1\_DISK2\mbox{-}0 
-\\CLEAR\_DISK1\mbox{-}0
-\\ON\_DISK2\_PEG1\mbox{-}0 
-\\SMALLER\_DISK2\_PEG3\mbox{-}0
-\\CLEAR\_PEG2\mbox{-}0 
-\\SMALLER\_DISK2\_PEG2\mbox{-}0
-\\ON\_DISK1\_DISK2\mbox{-}3 
-\\CLEAR\_PEG3\mbox{-}0 
-\\ON\_DISK2\_PEG3\mbox{-}3)
+\begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(MOVEDISK_DISK1_DISK2_PEG2)
+(MOVEDISK_DISK2_PEG1_PEG3)
+(MOVEDISK_DISK1_PEG2_DISK2)
+\end{lstlisting}
     \end{enumerate}
 
 

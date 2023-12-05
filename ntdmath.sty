@@ -476,6 +476,12 @@
    morekeywords={[3]
      action
    },%
+   morekeywords={[4]
+     on,
+    clear,
+    smaller,
+    movedisk
+   },%
    sensitive,% ???
    alsodigit={-,:,=},%
    morecomment=[l];,%
@@ -484,13 +490,14 @@
   }[keywords,comments,strings]%
 
 \lstdefinestyle{pddlstyle}
-{ %numbers=left,
-  %numberstyle=\tiny,
+{ numbers=left,
+  numberstyle=\tiny,
   numbersep=4pt,
   keywordstyle={\bf},
   keywordstyle={[2]\bf\color{blue!50!black}},
   keywordstyle={[3]\bf\color{red!50!black}},
-  %identifierstyle=\color{red},
+  keywordstyle={[4]\bf\color{blue}},
+  identifierstyle=\color{black},
   commentstyle=\color{green!50!black}
 }
 
