@@ -127,9 +127,9 @@
   \end{itemize}
   What plans are produced by each planner for each instance (one, two,
   four disks)?
-
+    All plans in this section generated with BlackBox.
     \begin{enumerate}
-        \item Two Peg, One Disk \\
+        \item Two Peg, One Disk
         \begin{lstlisting}[language=pddl, style=pddlstyle,
   basicstyle=\scriptsize]
 (movedisk disk1 peg1 peg2)
@@ -169,101 +169,674 @@
         \item Start State
         \begin{lstlisting}[language=pddl, style=pddlstyle,
   basicstyle=\scriptsize]
+clear_disk1-0
+(not clear_disk2-0)
+(not clear_peg1-0)
+clear_peg2-0
 clear_peg3-0
+(not on_disk1_disk1-0)
+on_disk1_disk2-0
+(not on_disk1_peg1-0)
+(not on_disk1_peg2-0)
+(not on_disk1_peg3-0)
+(not on_disk2_disk1-0)
+(not on_disk2_disk2-0)
+on_disk2_peg1-0
+(not on_disk2_peg2-0)
+(not on_disk2_peg3-0)
+(not on_peg1_disk1-0)
+(not on_peg1_disk2-0)
+(not on_peg1_peg1-0)
+(not on_peg1_peg2-0)
+(not on_peg1_peg3-0)
+(not on_peg2_disk1-0)
+(not on_peg2_disk2-0)
+(not on_peg2_peg1-0)
+(not on_peg2_peg2-0)
+(not on_peg2_peg3-0)
+(not on_peg3_disk1-0)
+(not on_peg3_disk2-0)
+(not on_peg3_peg1-0)
+(not on_peg3_peg2-0)
+(not on_peg3_peg3-0)
+(not smaller_disk1_disk1-0)
+smaller_disk1_disk2-0
+smaller_disk1_peg1-0
+smaller_disk1_peg2-0
+smaller_disk1_peg3-0
+(not smaller_disk2_disk1-0)
+(not smaller_disk2_disk2-0)
+smaller_disk2_peg1-0
 smaller_disk2_peg2-0
 smaller_disk2_peg3-0
-smaller_disk2_peg2-0
-smaller_disk2_peg3-0
-...
+(not smaller_peg1_disk1-0)
+(not smaller_peg1_disk2-0)
+(not smaller_peg1_peg1-0)
+(not smaller_peg1_peg2-0)
+(not smaller_peg1_peg3-0)
+(not smaller_peg2_disk1-0)
+(not smaller_peg2_disk2-0)
+(not smaller_peg2_peg1-0)
+(not smaller_peg2_peg2-0)
+(not smaller_peg2_peg3-0)
+(not smaller_peg3_disk1-0)
+(not smaller_peg3_disk2-0)
+(not smaller_peg3_peg1-0)
+(not smaller_peg3_peg2-0)
+(not smaller_peg3_peg3-0)
         \end{lstlisting}
         \item Goal Conditions
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+on_disk1_disk2-4
+on_disk2_peg3-4
+        \end{lstlisting}
         \item Frame Axioms
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(or (:iff clear_disk1-0 clear_disk1-1))
+(or (:iff clear_disk2-0 clear_disk2-1))
+(or (:iff clear_peg1-0 clear_peg1-1))
+(or (:iff clear_peg2-0 clear_peg2-1))
+(or (:iff clear_peg3-0 clear_peg3-1))
+(or (:iff on_disk1_disk2-0 on_disk1_disk2-1))
+(or (:iff on_disk1_peg1-0 on_disk1_peg1-1))
+(or (:iff on_disk1_peg2-0 on_disk1_peg2-1))
+(or (:iff on_disk1_peg3-0 on_disk1_peg3-1))
+(or (:iff on_disk2_disk1-0 on_disk2_disk1-1))
+(or (:iff on_disk2_peg1-0 on_disk2_peg1-1))
+(or (:iff on_disk2_peg2-0 on_disk2_peg2-1))
+(or (:iff on_disk2_peg3-0 on_disk2_peg3-1))
+(or (:iff smaller_disk1_disk1-0 smaller_disk1_disk1-1))
+(or (:iff smaller_disk1_disk2-0 smaller_disk1_disk2-1))
+(or (:iff smaller_disk1_peg1-0 smaller_disk1_peg1-1))
+(or (:iff smaller_disk1_peg2-0 smaller_disk1_peg2-1))
+(or (:iff smaller_disk1_peg3-0 smaller_disk1_peg3-1))
+(or (:iff smaller_disk2_disk1-0 smaller_disk2_disk1-1))
+(or (:iff smaller_disk2_disk2-0 smaller_disk2_disk2-1))
+(or (:iff smaller_disk2_peg1-0 smaller_disk2_peg1-1))
+(or (:iff smaller_disk2_peg2-0 smaller_disk2_peg2-1))
+(or (:iff smaller_disk2_peg3-0 smaller_disk2_peg3-1))
+(or (:iff smaller_peg1_disk1-0 smaller_peg1_disk1-1))
+(or (:iff smaller_peg1_disk2-0 smaller_peg1_disk2-1))
+(or (:iff smaller_peg1_peg1-0 smaller_peg1_peg1-1))
+(or (:iff smaller_peg1_peg2-0 smaller_peg1_peg2-1))
+(or (:iff smaller_peg1_peg3-0 smaller_peg1_peg3-1))
+(or (:iff smaller_peg2_disk1-0 smaller_peg2_disk1-1))
+(or (:iff smaller_peg2_disk2-0 smaller_peg2_disk2-1))
+(or (:iff smaller_peg2_peg1-0 smaller_peg2_peg1-1))
+(or (:iff smaller_peg2_peg2-0 smaller_peg2_peg2-1))
+(or (:iff smaller_peg2_peg3-0 smaller_peg2_peg3-1))
+(or (:iff smaller_peg3_disk1-0 smaller_peg3_disk1-1))
+(or (:iff smaller_peg3_disk2-0 smaller_peg3_disk2-1))
+(or (:iff smaller_peg3_peg1-0 smaller_peg3_peg1-1))
+(or (:iff smaller_peg3_peg2-0 smaller_peg3_peg2-1))
+(or (:iff smaller_peg3_peg3-0 smaller_peg3_peg3-1))
+(or (:iff clear_disk1-1 clear_disk1-2) movedisk_disk2_disk1_peg1-1 movedisk_disk2_disk1_peg2-1 movedisk_disk2_disk1_peg3-1 movedisk_disk2_peg1_disk1-1 movedisk_disk2_peg2_disk1-1 movedisk_disk2_peg3_disk1-1)
+(or (:iff clear_disk2-1 clear_disk2-2) movedisk_disk1_disk2_peg1-1 movedisk_disk1_disk2_peg2-1 movedisk_disk1_disk2_peg3-1 movedisk_disk1_peg1_disk2-1 movedisk_disk1_peg2_disk2-1 movedisk_disk1_peg3_disk2-1)
+(or (:iff clear_peg1-1 clear_peg1-2) movedisk_disk1_disk2_peg1-1 movedisk_disk1_peg1_disk2-1 movedisk_disk1_peg1_peg2-1 movedisk_disk1_peg1_peg3-1 movedisk_disk1_peg2_peg1-1 movedisk_disk1_peg3_peg1-1 movedisk_disk2_disk1_peg1-1 movedisk_disk2_peg1_disk1-1 movedisk_disk2_peg1_peg2-1 movedisk_disk2_peg1_peg3-1 movedisk_disk2_peg2_peg1-1 movedisk_disk2_peg3_peg1-1)
+(or (:iff clear_peg2-1 clear_peg2-2) movedisk_disk1_disk2_peg2-1 movedisk_disk1_peg1_peg2-1 movedisk_disk1_peg2_disk2-1 movedisk_disk1_peg2_peg1-1 movedisk_disk1_peg2_peg3-1 movedisk_disk1_peg3_peg2-1 movedisk_disk2_disk1_peg2-1 movedisk_disk2_peg1_peg2-1 movedisk_disk2_peg2_disk1-1 movedisk_disk2_peg2_peg1-1 movedisk_disk2_peg2_peg3-1 movedisk_disk2_peg3_peg2-1)
+(or (:iff clear_peg3-1 clear_peg3-2) movedisk_disk1_disk2_peg3-1 movedisk_disk1_peg1_peg3-1 movedisk_disk1_peg2_peg3-1 movedisk_disk1_peg3_disk2-1 movedisk_disk1_peg3_peg1-1 movedisk_disk1_peg3_peg2-1 movedisk_disk2_disk1_peg3-1 movedisk_disk2_peg1_peg3-1 movedisk_disk2_peg2_peg3-1 movedisk_disk2_peg3_disk1-1 movedisk_disk2_peg3_peg1-1 movedisk_disk2_peg3_peg2-1)
+(or (:iff on_disk1_disk2-1 on_disk1_disk2-2) movedisk_disk1_disk2_peg1-1 movedisk_disk1_disk2_peg2-1 movedisk_disk1_disk2_peg3-1 movedisk_disk1_peg1_disk2-1 movedisk_disk1_peg2_disk2-1 movedisk_disk1_peg3_disk2-1)
+(or (:iff on_disk1_peg1-1 on_disk1_peg1-2) movedisk_disk1_disk2_peg1-1 movedisk_disk1_peg1_disk2-1 movedisk_disk1_peg1_peg2-1 movedisk_disk1_peg1_peg3-1 movedisk_disk1_peg2_peg1-1 movedisk_disk1_peg3_peg1-1)
+(or (:iff on_disk1_peg2-1 on_disk1_peg2-2) movedisk_disk1_disk2_peg2-1 movedisk_disk1_peg1_peg2-1 movedisk_disk1_peg2_disk2-1 movedisk_disk1_peg2_peg1-1 movedisk_disk1_peg2_peg3-1 movedisk_disk1_peg3_peg2-1)
+(or (:iff on_disk1_peg3-1 on_disk1_peg3-2) movedisk_disk1_disk2_peg3-1 movedisk_disk1_peg1_peg3-1 movedisk_disk1_peg2_peg3-1 movedisk_disk1_peg3_disk2-1 movedisk_disk1_peg3_peg1-1 movedisk_disk1_peg3_peg2-1)
+(or (:iff on_disk2_disk1-1 on_disk2_disk1-2) movedisk_disk2_disk1_peg1-1 movedisk_disk2_disk1_peg2-1 movedisk_disk2_disk1_peg3-1 movedisk_disk2_peg1_disk1-1 movedisk_disk2_peg2_disk1-1 movedisk_disk2_peg3_disk1-1)
+(or (:iff on_disk2_peg1-1 on_disk2_peg1-2) movedisk_disk2_disk1_peg1-1 movedisk_disk2_peg1_disk1-1 movedisk_disk2_peg1_peg2-1 movedisk_disk2_peg1_peg3-1 movedisk_disk2_peg2_peg1-1 movedisk_disk2_peg3_peg1-1)
+(or (:iff on_disk2_peg2-1 on_disk2_peg2-2) movedisk_disk2_disk1_peg2-1 movedisk_disk2_peg1_peg2-1 movedisk_disk2_peg2_disk1-1 movedisk_disk2_peg2_peg1-1 movedisk_disk2_peg2_peg3-1 movedisk_disk2_peg3_peg2-1)
+(or (:iff on_disk2_peg3-1 on_disk2_peg3-2) movedisk_disk2_disk1_peg3-1 movedisk_disk2_peg1_peg3-1 movedisk_disk2_peg2_peg3-1 movedisk_disk2_peg3_disk1-1 movedisk_disk2_peg3_peg1-1 movedisk_disk2_peg3_peg2-1)
+(or (:iff smaller_disk1_disk1-1 smaller_disk1_disk1-2))
+(or (:iff smaller_disk1_disk2-1 smaller_disk1_disk2-2))
+(or (:iff smaller_disk1_peg1-1 smaller_disk1_peg1-2))
+(or (:iff smaller_disk1_peg2-1 smaller_disk1_peg2-2))
+(or (:iff smaller_disk1_peg3-1 smaller_disk1_peg3-2))
+(or (:iff smaller_disk2_disk1-1 smaller_disk2_disk1-2))
+(or (:iff smaller_disk2_disk2-1 smaller_disk2_disk2-2))
+(or (:iff smaller_disk2_peg1-1 smaller_disk2_peg1-2))
+(or (:iff smaller_disk2_peg2-1 smaller_disk2_peg2-2))
+(or (:iff smaller_disk2_peg3-1 smaller_disk2_peg3-2))
+(or (:iff smaller_peg1_disk1-1 smaller_peg1_disk1-2))
+(or (:iff smaller_peg1_disk2-1 smaller_peg1_disk2-2))
+(or (:iff smaller_peg1_peg1-1 smaller_peg1_peg1-2))
+(or (:iff smaller_peg1_peg2-1 smaller_peg1_peg2-2))
+(or (:iff smaller_peg1_peg3-1 smaller_peg1_peg3-2))
+(or (:iff smaller_peg2_disk1-1 smaller_peg2_disk1-2))
+(or (:iff smaller_peg2_disk2-1 smaller_peg2_disk2-2))
+(or (:iff smaller_peg2_peg1-1 smaller_peg2_peg1-2))
+(or (:iff smaller_peg2_peg2-1 smaller_peg2_peg2-2))
+(or (:iff smaller_peg2_peg3-1 smaller_peg2_peg3-2))
+(or (:iff smaller_peg3_disk1-1 smaller_peg3_disk1-2))
+(or (:iff smaller_peg3_disk2-1 smaller_peg3_disk2-2))
+(or (:iff smaller_peg3_peg1-1 smaller_peg3_peg1-2))
+(or (:iff smaller_peg3_peg2-1 smaller_peg3_peg2-2))
+(or (:iff smaller_peg3_peg3-1 smaller_peg3_peg3-2))
+(or (:iff clear_disk1-2 clear_disk1-3) movedisk_disk2_disk1_peg1-2 movedisk_disk2_disk1_peg2-2 movedisk_disk2_disk1_peg3-2 movedisk_disk2_peg1_disk1-2 movedisk_disk2_peg2_disk1-2 movedisk_disk2_peg3_disk1-2)
+(or (:iff clear_disk2-2 clear_disk2-3) movedisk_disk1_disk2_peg1-2 movedisk_disk1_disk2_peg2-2 movedisk_disk1_disk2_peg3-2 movedisk_disk1_peg1_disk2-2 movedisk_disk1_peg2_disk2-2 movedisk_disk1_peg3_disk2-2)
+(or (:iff clear_peg1-2 clear_peg1-3) movedisk_disk1_disk2_peg1-2 movedisk_disk1_peg1_disk2-2 movedisk_disk1_peg1_peg2-2 movedisk_disk1_peg1_peg3-2 movedisk_disk1_peg2_peg1-2 movedisk_disk1_peg3_peg1-2 movedisk_disk2_disk1_peg1-2 movedisk_disk2_peg1_disk1-2 movedisk_disk2_peg1_peg2-2 movedisk_disk2_peg1_peg3-2 movedisk_disk2_peg2_peg1-2 movedisk_disk2_peg3_peg1-2)
+(or (:iff clear_peg2-2 clear_peg2-3) movedisk_disk1_disk2_peg2-2 movedisk_disk1_peg1_peg2-2 movedisk_disk1_peg2_disk2-2 movedisk_disk1_peg2_peg1-2 movedisk_disk1_peg2_peg3-2 movedisk_disk1_peg3_peg2-2 movedisk_disk2_disk1_peg2-2 movedisk_disk2_peg1_peg2-2 movedisk_disk2_peg2_disk1-2 movedisk_disk2_peg2_peg1-2 movedisk_disk2_peg2_peg3-2 movedisk_disk2_peg3_peg2-2)
+(or (:iff clear_peg3-2 clear_peg3-3) movedisk_disk1_disk2_peg3-2 movedisk_disk1_peg1_peg3-2 movedisk_disk1_peg2_peg3-2 movedisk_disk1_peg3_disk2-2 movedisk_disk1_peg3_peg1-2 movedisk_disk1_peg3_peg2-2 movedisk_disk2_disk1_peg3-2 movedisk_disk2_peg1_peg3-2 movedisk_disk2_peg2_peg3-2 movedisk_disk2_peg3_disk1-2 movedisk_disk2_peg3_peg1-2 movedisk_disk2_peg3_peg2-2)
+(or (:iff on_disk1_disk2-2 on_disk1_disk2-3) movedisk_disk1_disk2_peg1-2 movedisk_disk1_disk2_peg2-2 movedisk_disk1_disk2_peg3-2 movedisk_disk1_peg1_disk2-2 movedisk_disk1_peg2_disk2-2 movedisk_disk1_peg3_disk2-2)
+(or (:iff on_disk1_peg1-2 on_disk1_peg1-3) movedisk_disk1_disk2_peg1-2 movedisk_disk1_peg1_disk2-2 movedisk_disk1_peg1_peg2-2 movedisk_disk1_peg1_peg3-2 movedisk_disk1_peg2_peg1-2 movedisk_disk1_peg3_peg1-2)
+(or (:iff on_disk1_peg2-2 on_disk1_peg2-3) movedisk_disk1_disk2_peg2-2 movedisk_disk1_peg1_peg2-2 movedisk_disk1_peg2_disk2-2 movedisk_disk1_peg2_peg1-2 movedisk_disk1_peg2_peg3-2 movedisk_disk1_peg3_peg2-2)
+(or (:iff on_disk1_peg3-2 on_disk1_peg3-3) movedisk_disk1_disk2_peg3-2 movedisk_disk1_peg1_peg3-2 movedisk_disk1_peg2_peg3-2 movedisk_disk1_peg3_disk2-2 movedisk_disk1_peg3_peg1-2 movedisk_disk1_peg3_peg2-2)
+(or (:iff on_disk2_disk1-2 on_disk2_disk1-3) movedisk_disk2_disk1_peg1-2 movedisk_disk2_disk1_peg2-2 movedisk_disk2_disk1_peg3-2 movedisk_disk2_peg1_disk1-2 movedisk_disk2_peg2_disk1-2 movedisk_disk2_peg3_disk1-2)
+(or (:iff on_disk2_peg1-2 on_disk2_peg1-3) movedisk_disk2_disk1_peg1-2 movedisk_disk2_peg1_disk1-2 movedisk_disk2_peg1_peg2-2 movedisk_disk2_peg1_peg3-2 movedisk_disk2_peg2_peg1-2 movedisk_disk2_peg3_peg1-2)
+(or (:iff on_disk2_peg2-2 on_disk2_peg2-3) movedisk_disk2_disk1_peg2-2 movedisk_disk2_peg1_peg2-2 movedisk_disk2_peg2_disk1-2 movedisk_disk2_peg2_peg1-2 movedisk_disk2_peg2_peg3-2 movedisk_disk2_peg3_peg2-2)
+(or (:iff on_disk2_peg3-2 on_disk2_peg3-3) movedisk_disk2_disk1_peg3-2 movedisk_disk2_peg1_peg3-2 movedisk_disk2_peg2_peg3-2 movedisk_disk2_peg3_disk1-2 movedisk_disk2_peg3_peg1-2 movedisk_disk2_peg3_peg2-2)
+(or (:iff smaller_disk1_disk1-2 smaller_disk1_disk1-3))
+(or (:iff smaller_disk1_disk2-2 smaller_disk1_disk2-3))
+(or (:iff smaller_disk1_peg1-2 smaller_disk1_peg1-3))
+(or (:iff smaller_disk1_peg2-2 smaller_disk1_peg2-3))
+(or (:iff smaller_disk1_peg3-2 smaller_disk1_peg3-3))
+(or (:iff smaller_disk2_disk1-2 smaller_disk2_disk1-3))
+(or (:iff smaller_disk2_disk2-2 smaller_disk2_disk2-3))
+(or (:iff smaller_disk2_peg1-2 smaller_disk2_peg1-3))
+(or (:iff smaller_disk2_peg2-2 smaller_disk2_peg2-3))
+(or (:iff smaller_disk2_peg3-2 smaller_disk2_peg3-3))
+(or (:iff smaller_peg1_disk1-2 smaller_peg1_disk1-3))
+(or (:iff smaller_peg1_disk2-2 smaller_peg1_disk2-3))
+(or (:iff smaller_peg1_peg1-2 smaller_peg1_peg1-3))
+(or (:iff smaller_peg1_peg2-2 smaller_peg1_peg2-3))
+(or (:iff smaller_peg1_peg3-2 smaller_peg1_peg3-3))
+(or (:iff smaller_peg2_disk1-2 smaller_peg2_disk1-3))
+(or (:iff smaller_peg2_disk2-2 smaller_peg2_disk2-3))
+(or (:iff smaller_peg2_peg1-2 smaller_peg2_peg1-3))
+(or (:iff smaller_peg2_peg2-2 smaller_peg2_peg2-3))
+(or (:iff smaller_peg2_peg3-2 smaller_peg2_peg3-3))
+(or (:iff smaller_peg3_disk1-2 smaller_peg3_disk1-3))
+(or (:iff smaller_peg3_disk2-2 smaller_peg3_disk2-3))
+(or (:iff smaller_peg3_peg1-2 smaller_peg3_peg1-3))
+(or (:iff smaller_peg3_peg2-2 smaller_peg3_peg2-3))
+(or (:iff smaller_peg3_peg3-2 smaller_peg3_peg3-3))
+(or (:iff clear_disk1-3 clear_disk1-4) movedisk_disk2_disk1_peg1-3 movedisk_disk2_disk1_peg2-3 movedisk_disk2_disk1_peg3-3 movedisk_disk2_peg1_disk1-3 movedisk_disk2_peg2_disk1-3 movedisk_disk2_peg3_disk1-3)
+(or (:iff clear_disk2-3 clear_disk2-4) movedisk_disk1_disk2_peg1-3 movedisk_disk1_disk2_peg2-3 movedisk_disk1_disk2_peg3-3 movedisk_disk1_peg1_disk2-3 movedisk_disk1_peg2_disk2-3 movedisk_disk1_peg3_disk2-3)
+(or (:iff clear_peg1-3 clear_peg1-4) movedisk_disk1_disk2_peg1-3 movedisk_disk1_peg1_disk2-3 movedisk_disk1_peg1_peg2-3 movedisk_disk1_peg1_peg3-3 movedisk_disk1_peg2_peg1-3 movedisk_disk1_peg3_peg1-3 movedisk_disk2_disk1_peg1-3 movedisk_disk2_peg1_disk1-3 movedisk_disk2_peg1_peg2-3 movedisk_disk2_peg1_peg3-3 movedisk_disk2_peg2_peg1-3 movedisk_disk2_peg3_peg1-3)
+(or (:iff clear_peg2-3 clear_peg2-4) movedisk_disk1_disk2_peg2-3 movedisk_disk1_peg1_peg2-3 movedisk_disk1_peg2_disk2-3 movedisk_disk1_peg2_peg1-3 movedisk_disk1_peg2_peg3-3 movedisk_disk1_peg3_peg2-3 movedisk_disk2_disk1_peg2-3 movedisk_disk2_peg1_peg2-3 movedisk_disk2_peg2_disk1-3 movedisk_disk2_peg2_peg1-3 movedisk_disk2_peg2_peg3-3 movedisk_disk2_peg3_peg2-3)
+(or (:iff clear_peg3-3 clear_peg3-4) movedisk_disk1_disk2_peg3-3 movedisk_disk1_peg1_peg3-3 movedisk_disk1_peg2_peg3-3 movedisk_disk1_peg3_disk2-3 movedisk_disk1_peg3_peg1-3 movedisk_disk1_peg3_peg2-3 movedisk_disk2_disk1_peg3-3 movedisk_disk2_peg1_peg3-3 movedisk_disk2_peg2_peg3-3 movedisk_disk2_peg3_disk1-3 movedisk_disk2_peg3_peg1-3 movedisk_disk2_peg3_peg2-3)
+(or (:iff on_disk1_disk2-3 on_disk1_disk2-4) movedisk_disk1_disk2_peg1-3 movedisk_disk1_disk2_peg2-3 movedisk_disk1_disk2_peg3-3 movedisk_disk1_peg1_disk2-3 movedisk_disk1_peg2_disk2-3 movedisk_disk1_peg3_disk2-3)
+(or (:iff on_disk1_peg1-3 on_disk1_peg1-4) movedisk_disk1_disk2_peg1-3 movedisk_disk1_peg1_disk2-3 movedisk_disk1_peg1_peg2-3 movedisk_disk1_peg1_peg3-3 movedisk_disk1_peg2_peg1-3 movedisk_disk1_peg3_peg1-3)
+(or (:iff on_disk1_peg2-3 on_disk1_peg2-4) movedisk_disk1_disk2_peg2-3 movedisk_disk1_peg1_peg2-3 movedisk_disk1_peg2_disk2-3 movedisk_disk1_peg2_peg1-3 movedisk_disk1_peg2_peg3-3 movedisk_disk1_peg3_peg2-3)
+(or (:iff on_disk1_peg3-3 on_disk1_peg3-4) movedisk_disk1_disk2_peg3-3 movedisk_disk1_peg1_peg3-3 movedisk_disk1_peg2_peg3-3 movedisk_disk1_peg3_disk2-3 movedisk_disk1_peg3_peg1-3 movedisk_disk1_peg3_peg2-3)
+(or (:iff on_disk2_disk1-3 on_disk2_disk1-4) movedisk_disk2_disk1_peg1-3 movedisk_disk2_disk1_peg2-3 movedisk_disk2_disk1_peg3-3 movedisk_disk2_peg1_disk1-3 movedisk_disk2_peg2_disk1-3 movedisk_disk2_peg3_disk1-3)
+(or (:iff on_disk2_peg1-3 on_disk2_peg1-4) movedisk_disk2_disk1_peg1-3 movedisk_disk2_peg1_disk1-3 movedisk_disk2_peg1_peg2-3 movedisk_disk2_peg1_peg3-3 movedisk_disk2_peg2_peg1-3 movedisk_disk2_peg3_peg1-3)
+(or (:iff on_disk2_peg2-3 on_disk2_peg2-4) movedisk_disk2_disk1_peg2-3 movedisk_disk2_peg1_peg2-3 movedisk_disk2_peg2_disk1-3 movedisk_disk2_peg2_peg1-3 movedisk_disk2_peg2_peg3-3 movedisk_disk2_peg3_peg2-3)
+(or (:iff on_disk2_peg3-3 on_disk2_peg3-4) movedisk_disk2_disk1_peg3-3 movedisk_disk2_peg1_peg3-3 movedisk_disk2_peg2_peg3-3 movedisk_disk2_peg3_disk1-3 movedisk_disk2_peg3_peg1-3 movedisk_disk2_peg3_peg2-3)
+(or (:iff smaller_disk1_disk1-3 smaller_disk1_disk1-4))
+(or (:iff smaller_disk1_disk2-3 smaller_disk1_disk2-4))
+(or (:iff smaller_disk1_peg1-3 smaller_disk1_peg1-4))
+(or (:iff smaller_disk1_peg2-3 smaller_disk1_peg2-4))
+(or (:iff smaller_disk1_peg3-3 smaller_disk1_peg3-4))
+(or (:iff smaller_disk2_disk1-3 smaller_disk2_disk1-4))
+(or (:iff smaller_disk2_disk2-3 smaller_disk2_disk2-4))
+(or (:iff smaller_disk2_peg1-3 smaller_disk2_peg1-4))
+(or (:iff smaller_disk2_peg2-3 smaller_disk2_peg2-4))
+(or (:iff smaller_disk2_peg3-3 smaller_disk2_peg3-4))
+(or (:iff smaller_peg1_disk1-3 smaller_peg1_disk1-4))
+(or (:iff smaller_peg1_disk2-3 smaller_peg1_disk2-4))
+(or (:iff smaller_peg1_peg1-3 smaller_peg1_peg1-4))
+(or (:iff smaller_peg1_peg2-3 smaller_peg1_peg2-4))
+(or (:iff smaller_peg1_peg3-3 smaller_peg1_peg3-4))
+(or (:iff smaller_peg2_disk1-3 smaller_peg2_disk1-4))
+(or (:iff smaller_peg2_disk2-3 smaller_peg2_disk2-4))
+(or (:iff smaller_peg2_peg1-3 smaller_peg2_peg1-4))
+(or (:iff smaller_peg2_peg2-3 smaller_peg2_peg2-4))
+(or (:iff smaller_peg2_peg3-3 smaller_peg2_peg3-4))
+(or (:iff smaller_peg3_disk1-3 smaller_peg3_disk1-4))
+(or (:iff smaller_peg3_disk2-3 smaller_peg3_disk2-4))
+(or (:iff smaller_peg3_peg1-3 smaller_peg3_peg1-4))
+(or (:iff smaller_peg3_peg2-3 smaller_peg3_peg2-4))
+(or (:iff smaller_peg3_peg3-3 smaller_peg3_peg3-4))
+  \end{lstlisting}
         \item Operator Encoding
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(:implies movedisk_disk1_disk2_peg1-1 (and clear_disk1-1 smaller_disk1_peg1-1 on_disk1_disk2-1 clear_peg1-1 on_disk1_peg1-2 clear_disk2-2 (not on_disk1_disk2-2) (not clear_peg1-2)))
+(:implies movedisk_disk1_disk2_peg2-1 (and clear_disk1-1 smaller_disk1_peg2-1 on_disk1_disk2-1 clear_peg2-1 on_disk1_peg2-2 clear_disk2-2 (not on_disk1_disk2-2) (not clear_peg2-2)))
+(:implies movedisk_disk1_disk2_peg3-1 (and clear_disk1-1 smaller_disk1_peg3-1 on_disk1_disk2-1 clear_peg3-1 on_disk1_peg3-2 clear_disk2-2 (not on_disk1_disk2-2) (not clear_peg3-2)))
+(:implies movedisk_disk1_peg1_disk2-1 (and clear_disk1-1 smaller_disk1_disk2-1 on_disk1_peg1-1 clear_disk2-1 on_disk1_disk2-2 clear_peg1-2 (not on_disk1_peg1-2) (not clear_disk2-2)))
+(:implies movedisk_disk1_peg1_peg2-1 (and clear_disk1-1 smaller_disk1_peg2-1 on_disk1_peg1-1 clear_peg2-1 on_disk1_peg2-2 clear_peg1-2 (not on_disk1_peg1-2) (not clear_peg2-2)))
+(:implies movedisk_disk1_peg1_peg3-1 (and clear_disk1-1 smaller_disk1_peg3-1 on_disk1_peg1-1 clear_peg3-1 on_disk1_peg3-2 clear_peg1-2 (not on_disk1_peg1-2) (not clear_peg3-2)))
+(:implies movedisk_disk1_peg2_disk2-1 (and clear_disk1-1 smaller_disk1_disk2-1 on_disk1_peg2-1 clear_disk2-1 on_disk1_disk2-2 clear_peg2-2 (not on_disk1_peg2-2) (not clear_disk2-2)))
+(:implies movedisk_disk1_peg2_peg1-1 (and clear_disk1-1 smaller_disk1_peg1-1 on_disk1_peg2-1 clear_peg1-1 on_disk1_peg1-2 clear_peg2-2 (not on_disk1_peg2-2) (not clear_peg1-2)))
+(:implies movedisk_disk1_peg2_peg3-1 (and clear_disk1-1 smaller_disk1_peg3-1 on_disk1_peg2-1 clear_peg3-1 on_disk1_peg3-2 clear_peg2-2 (not on_disk1_peg2-2) (not clear_peg3-2)))
+(:implies movedisk_disk1_peg3_disk2-1 (and clear_disk1-1 smaller_disk1_disk2-1 on_disk1_peg3-1 clear_disk2-1 on_disk1_disk2-2 clear_peg3-2 (not on_disk1_peg3-2) (not clear_disk2-2)))
+(:implies movedisk_disk1_peg3_peg1-1 (and clear_disk1-1 smaller_disk1_peg1-1 on_disk1_peg3-1 clear_peg1-1 on_disk1_peg1-2 clear_peg3-2 (not on_disk1_peg3-2) (not clear_peg1-2)))
+(:implies movedisk_disk1_peg3_peg2-1 (and clear_disk1-1 smaller_disk1_peg2-1 on_disk1_peg3-1 clear_peg2-1 on_disk1_peg2-2 clear_peg3-2 (not on_disk1_peg3-2) (not clear_peg2-2)))
+(:implies movedisk_disk2_disk1_peg1-1 (and clear_disk2-1 smaller_disk2_peg1-1 on_disk2_disk1-1 clear_peg1-1 on_disk2_peg1-2 clear_disk1-2 (not on_disk2_disk1-2) (not clear_peg1-2)))
+(:implies movedisk_disk2_disk1_peg2-1 (and clear_disk2-1 smaller_disk2_peg2-1 on_disk2_disk1-1 clear_peg2-1 on_disk2_peg2-2 clear_disk1-2 (not on_disk2_disk1-2) (not clear_peg2-2)))
+(:implies movedisk_disk2_disk1_peg3-1 (and clear_disk2-1 smaller_disk2_peg3-1 on_disk2_disk1-1 clear_peg3-1 on_disk2_peg3-2 clear_disk1-2 (not on_disk2_disk1-2) (not clear_peg3-2)))
+(:implies movedisk_disk2_peg1_disk1-1 (and clear_disk2-1 smaller_disk2_disk1-1 on_disk2_peg1-1 clear_disk1-1 on_disk2_disk1-2 clear_peg1-2 (not on_disk2_peg1-2) (not clear_disk1-2)))
+(:implies movedisk_disk2_peg1_peg2-1 (and clear_disk2-1 smaller_disk2_peg2-1 on_disk2_peg1-1 clear_peg2-1 on_disk2_peg2-2 clear_peg1-2 (not on_disk2_peg1-2) (not clear_peg2-2)))
+(:implies movedisk_disk2_peg1_peg3-1 (and clear_disk2-1 smaller_disk2_peg3-1 on_disk2_peg1-1 clear_peg3-1 on_disk2_peg3-2 clear_peg1-2 (not on_disk2_peg1-2) (not clear_peg3-2)))
+(:implies movedisk_disk2_peg2_disk1-1 (and clear_disk2-1 smaller_disk2_disk1-1 on_disk2_peg2-1 clear_disk1-1 on_disk2_disk1-2 clear_peg2-2 (not on_disk2_peg2-2) (not clear_disk1-2)))
+(:implies movedisk_disk2_peg2_peg1-1 (and clear_disk2-1 smaller_disk2_peg1-1 on_disk2_peg2-1 clear_peg1-1 on_disk2_peg1-2 clear_peg2-2 (not on_disk2_peg2-2) (not clear_peg1-2)))
+(:implies movedisk_disk2_peg2_peg3-1 (and clear_disk2-1 smaller_disk2_peg3-1 on_disk2_peg2-1 clear_peg3-1 on_disk2_peg3-2 clear_peg2-2 (not on_disk2_peg2-2) (not clear_peg3-2)))
+(:implies movedisk_disk2_peg3_disk1-1 (and clear_disk2-1 smaller_disk2_disk1-1 on_disk2_peg3-1 clear_disk1-1 on_disk2_disk1-2 clear_peg3-2 (not on_disk2_peg3-2) (not clear_disk1-2)))
+(:implies movedisk_disk2_peg3_peg1-1 (and clear_disk2-1 smaller_disk2_peg1-1 on_disk2_peg3-1 clear_peg1-1 on_disk2_peg1-2 clear_peg3-2 (not on_disk2_peg3-2) (not clear_peg1-2)))
+(:implies movedisk_disk2_peg3_peg2-1 (and clear_disk2-1 smaller_disk2_peg2-1 on_disk2_peg3-1 clear_peg2-1 on_disk2_peg2-2 clear_peg3-2 (not on_disk2_peg3-2) (not clear_peg2-2)))
+(:implies movedisk_disk1_disk2_peg1-2 (and clear_disk1-2 smaller_disk1_peg1-2 on_disk1_disk2-2 clear_peg1-2 on_disk1_peg1-3 clear_disk2-3 (not on_disk1_disk2-3) (not clear_peg1-3)))
+(:implies movedisk_disk1_disk2_peg2-2 (and clear_disk1-2 smaller_disk1_peg2-2 on_disk1_disk2-2 clear_peg2-2 on_disk1_peg2-3 clear_disk2-3 (not on_disk1_disk2-3) (not clear_peg2-3)))
+(:implies movedisk_disk1_disk2_peg3-2 (and clear_disk1-2 smaller_disk1_peg3-2 on_disk1_disk2-2 clear_peg3-2 on_disk1_peg3-3 clear_disk2-3 (not on_disk1_disk2-3) (not clear_peg3-3)))
+(:implies movedisk_disk1_peg1_disk2-2 (and clear_disk1-2 smaller_disk1_disk2-2 on_disk1_peg1-2 clear_disk2-2 on_disk1_disk2-3 clear_peg1-3 (not on_disk1_peg1-3) (not clear_disk2-3)))
+(:implies movedisk_disk1_peg1_peg2-2 (and clear_disk1-2 smaller_disk1_peg2-2 on_disk1_peg1-2 clear_peg2-2 on_disk1_peg2-3 clear_peg1-3 (not on_disk1_peg1-3) (not clear_peg2-3)))
+(:implies movedisk_disk1_peg1_peg3-2 (and clear_disk1-2 smaller_disk1_peg3-2 on_disk1_peg1-2 clear_peg3-2 on_disk1_peg3-3 clear_peg1-3 (not on_disk1_peg1-3) (not clear_peg3-3)))
+(:implies movedisk_disk1_peg2_disk2-2 (and clear_disk1-2 smaller_disk1_disk2-2 on_disk1_peg2-2 clear_disk2-2 on_disk1_disk2-3 clear_peg2-3 (not on_disk1_peg2-3) (not clear_disk2-3)))
+(:implies movedisk_disk1_peg2_peg1-2 (and clear_disk1-2 smaller_disk1_peg1-2 on_disk1_peg2-2 clear_peg1-2 on_disk1_peg1-3 clear_peg2-3 (not on_disk1_peg2-3) (not clear_peg1-3)))
+(:implies movedisk_disk1_peg2_peg3-2 (and clear_disk1-2 smaller_disk1_peg3-2 on_disk1_peg2-2 clear_peg3-2 on_disk1_peg3-3 clear_peg2-3 (not on_disk1_peg2-3) (not clear_peg3-3)))
+(:implies movedisk_disk1_peg3_disk2-2 (and clear_disk1-2 smaller_disk1_disk2-2 on_disk1_peg3-2 clear_disk2-2 on_disk1_disk2-3 clear_peg3-3 (not on_disk1_peg3-3) (not clear_disk2-3)))
+(:implies movedisk_disk1_peg3_peg1-2 (and clear_disk1-2 smaller_disk1_peg1-2 on_disk1_peg3-2 clear_peg1-2 on_disk1_peg1-3 clear_peg3-3 (not on_disk1_peg3-3) (not clear_peg1-3)))
+(:implies movedisk_disk1_peg3_peg2-2 (and clear_disk1-2 smaller_disk1_peg2-2 on_disk1_peg3-2 clear_peg2-2 on_disk1_peg2-3 clear_peg3-3 (not on_disk1_peg3-3) (not clear_peg2-3)))
+(:implies movedisk_disk2_disk1_peg1-2 (and clear_disk2-2 smaller_disk2_peg1-2 on_disk2_disk1-2 clear_peg1-2 on_disk2_peg1-3 clear_disk1-3 (not on_disk2_disk1-3) (not clear_peg1-3)))
+(:implies movedisk_disk2_disk1_peg2-2 (and clear_disk2-2 smaller_disk2_peg2-2 on_disk2_disk1-2 clear_peg2-2 on_disk2_peg2-3 clear_disk1-3 (not on_disk2_disk1-3) (not clear_peg2-3)))
+(:implies movedisk_disk2_disk1_peg3-2 (and clear_disk2-2 smaller_disk2_peg3-2 on_disk2_disk1-2 clear_peg3-2 on_disk2_peg3-3 clear_disk1-3 (not on_disk2_disk1-3) (not clear_peg3-3)))
+(:implies movedisk_disk2_peg1_disk1-2 (and clear_disk2-2 smaller_disk2_disk1-2 on_disk2_peg1-2 clear_disk1-2 on_disk2_disk1-3 clear_peg1-3 (not on_disk2_peg1-3) (not clear_disk1-3)))
+(:implies movedisk_disk2_peg1_peg2-2 (and clear_disk2-2 smaller_disk2_peg2-2 on_disk2_peg1-2 clear_peg2-2 on_disk2_peg2-3 clear_peg1-3 (not on_disk2_peg1-3) (not clear_peg2-3)))
+(:implies movedisk_disk2_peg1_peg3-2 (and clear_disk2-2 smaller_disk2_peg3-2 on_disk2_peg1-2 clear_peg3-2 on_disk2_peg3-3 clear_peg1-3 (not on_disk2_peg1-3) (not clear_peg3-3)))
+(:implies movedisk_disk2_peg2_disk1-2 (and clear_disk2-2 smaller_disk2_disk1-2 on_disk2_peg2-2 clear_disk1-2 on_disk2_disk1-3 clear_peg2-3 (not on_disk2_peg2-3) (not clear_disk1-3)))
+(:implies movedisk_disk2_peg2_peg1-2 (and clear_disk2-2 smaller_disk2_peg1-2 on_disk2_peg2-2 clear_peg1-2 on_disk2_peg1-3 clear_peg2-3 (not on_disk2_peg2-3) (not clear_peg1-3)))
+(:implies movedisk_disk2_peg2_peg3-2 (and clear_disk2-2 smaller_disk2_peg3-2 on_disk2_peg2-2 clear_peg3-2 on_disk2_peg3-3 clear_peg2-3 (not on_disk2_peg2-3) (not clear_peg3-3)))
+(:implies movedisk_disk2_peg3_disk1-2 (and clear_disk2-2 smaller_disk2_disk1-2 on_disk2_peg3-2 clear_disk1-2 on_disk2_disk1-3 clear_peg3-3 (not on_disk2_peg3-3) (not clear_disk1-3)))
+(:implies movedisk_disk2_peg3_peg1-2 (and clear_disk2-2 smaller_disk2_peg1-2 on_disk2_peg3-2 clear_peg1-2 on_disk2_peg1-3 clear_peg3-3 (not on_disk2_peg3-3) (not clear_peg1-3)))
+(:implies movedisk_disk2_peg3_peg2-2 (and clear_disk2-2 smaller_disk2_peg2-2 on_disk2_peg3-2 clear_peg2-2 on_disk2_peg2-3 clear_peg3-3 (not on_disk2_peg3-3) (not clear_peg2-3)))
+(:implies movedisk_disk1_disk2_peg1-3 (and clear_disk1-3 smaller_disk1_peg1-3 on_disk1_disk2-3 clear_peg1-3 on_disk1_peg1-4 clear_disk2-4 (not on_disk1_disk2-4) (not clear_peg1-4)))
+(:implies movedisk_disk1_disk2_peg2-3 (and clear_disk1-3 smaller_disk1_peg2-3 on_disk1_disk2-3 clear_peg2-3 on_disk1_peg2-4 clear_disk2-4 (not on_disk1_disk2-4) (not clear_peg2-4)))
+(:implies movedisk_disk1_disk2_peg3-3 (and clear_disk1-3 smaller_disk1_peg3-3 on_disk1_disk2-3 clear_peg3-3 on_disk1_peg3-4 clear_disk2-4 (not on_disk1_disk2-4) (not clear_peg3-4)))
+(:implies movedisk_disk1_peg1_disk2-3 (and clear_disk1-3 smaller_disk1_disk2-3 on_disk1_peg1-3 clear_disk2-3 on_disk1_disk2-4 clear_peg1-4 (not on_disk1_peg1-4) (not clear_disk2-4)))
+(:implies movedisk_disk1_peg1_peg2-3 (and clear_disk1-3 smaller_disk1_peg2-3 on_disk1_peg1-3 clear_peg2-3 on_disk1_peg2-4 clear_peg1-4 (not on_disk1_peg1-4) (not clear_peg2-4)))
+(:implies movedisk_disk1_peg1_peg3-3 (and clear_disk1-3 smaller_disk1_peg3-3 on_disk1_peg1-3 clear_peg3-3 on_disk1_peg3-4 clear_peg1-4 (not on_disk1_peg1-4) (not clear_peg3-4)))
+(:implies movedisk_disk1_peg2_disk2-3 (and clear_disk1-3 smaller_disk1_disk2-3 on_disk1_peg2-3 clear_disk2-3 on_disk1_disk2-4 clear_peg2-4 (not on_disk1_peg2-4) (not clear_disk2-4)))
+(:implies movedisk_disk1_peg2_peg1-3 (and clear_disk1-3 smaller_disk1_peg1-3 on_disk1_peg2-3 clear_peg1-3 on_disk1_peg1-4 clear_peg2-4 (not on_disk1_peg2-4) (not clear_peg1-4)))
+(:implies movedisk_disk1_peg2_peg3-3 (and clear_disk1-3 smaller_disk1_peg3-3 on_disk1_peg2-3 clear_peg3-3 on_disk1_peg3-4 clear_peg2-4 (not on_disk1_peg2-4) (not clear_peg3-4)))
+(:implies movedisk_disk1_peg3_disk2-3 (and clear_disk1-3 smaller_disk1_disk2-3 on_disk1_peg3-3 clear_disk2-3 on_disk1_disk2-4 clear_peg3-4 (not on_disk1_peg3-4) (not clear_disk2-4)))
+(:implies movedisk_disk1_peg3_peg1-3 (and clear_disk1-3 smaller_disk1_peg1-3 on_disk1_peg3-3 clear_peg1-3 on_disk1_peg1-4 clear_peg3-4 (not on_disk1_peg3-4) (not clear_peg1-4)))
+(:implies movedisk_disk1_peg3_peg2-3 (and clear_disk1-3 smaller_disk1_peg2-3 on_disk1_peg3-3 clear_peg2-3 on_disk1_peg2-4 clear_peg3-4 (not on_disk1_peg3-4) (not clear_peg2-4)))
+(:implies movedisk_disk2_disk1_peg1-3 (and clear_disk2-3 smaller_disk2_peg1-3 on_disk2_disk1-3 clear_peg1-3 on_disk2_peg1-4 clear_disk1-4 (not on_disk2_disk1-4) (not clear_peg1-4)))
+(:implies movedisk_disk2_disk1_peg2-3 (and clear_disk2-3 smaller_disk2_peg2-3 on_disk2_disk1-3 clear_peg2-3 on_disk2_peg2-4 clear_disk1-4 (not on_disk2_disk1-4) (not clear_peg2-4)))
+(:implies movedisk_disk2_disk1_peg3-3 (and clear_disk2-3 smaller_disk2_peg3-3 on_disk2_disk1-3 clear_peg3-3 on_disk2_peg3-4 clear_disk1-4 (not on_disk2_disk1-4) (not clear_peg3-4)))
+(:implies movedisk_disk2_peg1_disk1-3 (and clear_disk2-3 smaller_disk2_disk1-3 on_disk2_peg1-3 clear_disk1-3 on_disk2_disk1-4 clear_peg1-4 (not on_disk2_peg1-4) (not clear_disk1-4)))
+(:implies movedisk_disk2_peg1_peg2-3 (and clear_disk2-3 smaller_disk2_peg2-3 on_disk2_peg1-3 clear_peg2-3 on_disk2_peg2-4 clear_peg1-4 (not on_disk2_peg1-4) (not clear_peg2-4)))
+(:implies movedisk_disk2_peg1_peg3-3 (and clear_disk2-3 smaller_disk2_peg3-3 on_disk2_peg1-3 clear_peg3-3 on_disk2_peg3-4 clear_peg1-4 (not on_disk2_peg1-4) (not clear_peg3-4)))
+(:implies movedisk_disk2_peg2_disk1-3 (and clear_disk2-3 smaller_disk2_disk1-3 on_disk2_peg2-3 clear_disk1-3 on_disk2_disk1-4 clear_peg2-4 (not on_disk2_peg2-4) (not clear_disk1-4)))
+(:implies movedisk_disk2_peg2_peg1-3 (and clear_disk2-3 smaller_disk2_peg1-3 on_disk2_peg2-3 clear_peg1-3 on_disk2_peg1-4 clear_peg2-4 (not on_disk2_peg2-4) (not clear_peg1-4)))
+(:implies movedisk_disk2_peg2_peg3-3 (and clear_disk2-3 smaller_disk2_peg3-3 on_disk2_peg2-3 clear_peg3-3 on_disk2_peg3-4 clear_peg2-4 (not on_disk2_peg2-4) (not clear_peg3-4)))
+(:implies movedisk_disk2_peg3_disk1-3 (and clear_disk2-3 smaller_disk2_disk1-3 on_disk2_peg3-3 clear_disk1-3 on_disk2_disk1-4 clear_peg3-4 (not on_disk2_peg3-4) (not clear_disk1-4)))
+(:implies movedisk_disk2_peg3_peg1-3 (and clear_disk2-3 smaller_disk2_peg1-3 on_disk2_peg3-3 clear_peg1-3 on_disk2_peg1-4 clear_peg3-4 (not on_disk2_peg3-4) (not clear_peg1-4)))
+(:implies movedisk_disk2_peg3_peg2-3 (and clear_disk2-3 smaller_disk2_peg2-3 on_disk2_peg3-3 clear_peg2-3 on_disk2_peg2-4 clear_peg3-4 (not on_disk2_peg3-4) (not clear_peg2-4)))
+  \end{lstlisting}
         \item Operator Exclusion
+        \begin{lstlisting}[language=pddl, style=pddlstyle,
+  basicstyle=\scriptsize]
+(:implies movedisk_disk1_disk2_peg1-1 (and  (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_disk2_peg2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_disk2_peg3-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg1_disk2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg1_peg2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg1_peg3-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg2_disk2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg2_peg1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg2_peg3-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg3_disk2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg3_peg1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk1_peg3_peg2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_disk1_peg1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_disk1_peg2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_disk1_peg3-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg1_disk1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg1_peg2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg1_peg3-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg2_disk1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg2_peg1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg2_peg3-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg3_disk1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_peg1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg3_peg1-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg2-1)))
+(:implies movedisk_disk2_peg3_peg2-1 (and  (not movedisk_disk1_disk2_peg1-1) (not movedisk_disk1_disk2_peg2-1) (not movedisk_disk1_disk2_peg3-1) (not movedisk_disk1_peg1_disk2-1) (not movedisk_disk1_peg1_peg2-1) (not movedisk_disk1_peg1_peg3-1) (not movedisk_disk1_peg2_disk2-1) (not movedisk_disk1_peg2_peg1-1) (not movedisk_disk1_peg2_peg3-1) (not movedisk_disk1_peg3_disk2-1) (not movedisk_disk1_peg3_peg1-1) (not movedisk_disk1_peg3_peg2-1) (not movedisk_disk2_disk1_peg1-1) (not movedisk_disk2_disk1_peg2-1) (not movedisk_disk2_disk1_peg3-1) (not movedisk_disk2_peg1_disk1-1) (not movedisk_disk2_peg1_peg2-1) (not movedisk_disk2_peg1_peg3-1) (not movedisk_disk2_peg2_disk1-1) (not movedisk_disk2_peg2_peg1-1) (not movedisk_disk2_peg2_peg3-1) (not movedisk_disk2_peg3_disk1-1) (not movedisk_disk2_peg3_peg1-1)))
+(:implies movedisk_disk1_disk2_peg1-2 (and  (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_disk2_peg2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_disk2_peg3-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg1_disk2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg1_peg2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg1_peg3-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg2_disk2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg2_peg1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg2_peg3-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg3_disk2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg3_peg1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk1_peg3_peg2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_disk1_peg1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_disk1_peg2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_disk1_peg3-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg1_disk1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg1_peg2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg1_peg3-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg2_disk1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg2_peg1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg2_peg3-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg3_disk1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_peg1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg3_peg1-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg2-2)))
+(:implies movedisk_disk2_peg3_peg2-2 (and  (not movedisk_disk1_disk2_peg1-2) (not movedisk_disk1_disk2_peg2-2) (not movedisk_disk1_disk2_peg3-2) (not movedisk_disk1_peg1_disk2-2) (not movedisk_disk1_peg1_peg2-2) (not movedisk_disk1_peg1_peg3-2) (not movedisk_disk1_peg2_disk2-2) (not movedisk_disk1_peg2_peg1-2) (not movedisk_disk1_peg2_peg3-2) (not movedisk_disk1_peg3_disk2-2) (not movedisk_disk1_peg3_peg1-2) (not movedisk_disk1_peg3_peg2-2) (not movedisk_disk2_disk1_peg1-2) (not movedisk_disk2_disk1_peg2-2) (not movedisk_disk2_disk1_peg3-2) (not movedisk_disk2_peg1_disk1-2) (not movedisk_disk2_peg1_peg2-2) (not movedisk_disk2_peg1_peg3-2) (not movedisk_disk2_peg2_disk1-2) (not movedisk_disk2_peg2_peg1-2) (not movedisk_disk2_peg2_peg3-2) (not movedisk_disk2_peg3_disk1-2) (not movedisk_disk2_peg3_peg1-2)))
+(:implies movedisk_disk1_disk2_peg1-3 (and  (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_disk2_peg2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_disk2_peg3-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg1_disk2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg1_peg2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg1_peg3-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg2_disk2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg2_peg1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg2_peg3-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg3_disk2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg3_peg1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk1_peg3_peg2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_disk1_peg1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_disk1_peg2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_disk1_peg3-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg1_disk1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg1_peg2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg1_peg3-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg2_disk1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg2_peg1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg2_peg3-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg3_disk1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_peg1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg3_peg1-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg2-3)))
+(:implies movedisk_disk2_peg3_peg2-3 (and  (not movedisk_disk1_disk2_peg1-3) (not movedisk_disk1_disk2_peg2-3) (not movedisk_disk1_disk2_peg3-3) (not movedisk_disk1_peg1_disk2-3) (not movedisk_disk1_peg1_peg2-3) (not movedisk_disk1_peg1_peg3-3) (not movedisk_disk1_peg2_disk2-3) (not movedisk_disk1_peg2_peg1-3) (not movedisk_disk1_peg2_peg3-3) (not movedisk_disk1_peg3_disk2-3) (not movedisk_disk1_peg3_peg1-3) (not movedisk_disk1_peg3_peg2-3) (not movedisk_disk2_disk1_peg1-3) (not movedisk_disk2_disk1_peg2-3) (not movedisk_disk2_disk1_peg3-3) (not movedisk_disk2_peg1_disk1-3) (not movedisk_disk2_peg1_peg2-3) (not movedisk_disk2_peg1_peg3-3) (not movedisk_disk2_peg2_disk1-3) (not movedisk_disk2_peg2_peg1-3) (not movedisk_disk2_peg2_peg3-3) (not movedisk_disk2_peg3_disk1-3) (not movedisk_disk2_peg3_peg1-3)))
+
+        \end{lstlisting}
     \end{enumerate} 
 
   \item Find the satisfying assignments for the three-peg, two-disk
     Boolean formula using your DPLL implementation.
     \begin{enumerate}
     \item What is the satisfying assignment?
-       \\If a literal is bound without a NOT clause, it is bound to true. If a literal is bound inside a NOT clause, it is bound to false.
+       \\If a literal is not inside a NOT clause, it is bound to true. If a literal is inside a NOT clause, it is bound to false.
        \begin{lstlisting}[language=pddl, style=pddlstyle,
   basicstyle=\scriptsize]
-(NOOP_SMALLER_DISK1_PEG3-1
-NOOP_SMALLER_DISK1_PEG2-1
-NOOP_SMALLER_DISK2_PEG3-2
-NOOP_SMALLER_DISK2_PEG2-1
-ON_DISK1_PEG2-1
-NOOP_ON_DISK1_PEG2-2
-(NOT ON_DISK1_PEG3-2)
-(NOT CLEAR_PEG3-2)
-NOOP_CLEAR_DISK2-2
-(NOT ON_DISK1_DISK2-1)
-(NOT ON_DISK1_DISK2-2)
-(NOT NOOP_ON_DISK1_DISK2-1)
-(NOT ON_DISK2_PEG1-2)
-(NOT CLEAR_PEG2-1)
-(NOT ON_DISK2_PEG2-2)
-(NOT NOOP_CLEAR_PEG2-1)
-(NOT NOOP_CLEAR_PEG3-2)
-NOOP_ON_DISK2_PEG1-1
-(NOT MOVEDISK_DISK1_PEG2_PEG3-2)
-NOOP_SMALLER_DISK1_DISK2-1
-(NOT MOVEDISK_DISK2_PEG1_PEG2-2)
-MOVEDISK_DISK1_DISK2_PEG2-1
-(NOT MOVEDISK_DISK1_PEG2_DISK2-2)
-NOOP_CLEAR_DISK1-1
-(NOT NOOP_ON_DISK2_PEG1-2)
-NOOP_SMALLER_DISK2_PEG3-1
-(NOT MOVEDISK_DISK1_DISK2_PEG3-2)
-CLEAR_DISK2-1
-(NOT MOVEDISK_DISK1_DISK2_PEG2-2)
-SMALLER_DISK2_PEG3-1
-(NOT NOOP_ON_DISK1_DISK2-2)
-ON_DISK2_PEG1-1
+(NOT ON_DISK1_PEG3-4)
+(NOT ON_DISK1_PEG1-4)
+(NOT ON_DISK2_PEG1-4)
+CLEAR_PEG1-4
+CLEAR_PEG1-3
+ON_DISK2_PEG3-3
+(NOT ON_DISK2_PEG1-3)
 MOVEDISK_DISK2_PEG1_PEG3-2
-CLEAR_DISK1-1
-NOOP_CLEAR_DISK1-2
-SMALLER_DISK1_DISK2-1
-NOOP_SMALLER_DISK1_DISK2-2
-ON_DISK2_PEG3-2
-NOOP_ON_DISK2_PEG3-3
-CLEAR_DISK1-2
-(NOT MOVEDISK_DISK1_PEG3_DISK2-3)
-SMALLER_DISK1_DISK2-2
+(NOT MOVEDISK_DISK1_PEG2_PEG1-3)
+(NOT CLEAR_PEG3-3)
+(NOT MOVEDISK_DISK1_PEG2_PEG3-3)
+(NOT ON_DISK1_PEG3-3)
 (NOT MOVEDISK_DISK2_PEG1_PEG3-3)
-ON_DISK1_PEG2-2
-(NOT NOOP_ON_DISK1_DISK2-3)
-CLEAR_DISK2-2
+(NOT CLEAR_PEG2-3)
+(NOT ON_DISK1_PEG2-4)
+(NOT MOVEDISK_DISK1_PEG2_PEG3-2)
+(NOT CLEAR_DISK2-4)
+ON_DISK1_PEG2-3
 MOVEDISK_DISK1_PEG2_DISK2-3
-(NOT MOVEDISK_DISK1_PEG3_PEG2-2)
-(NOT NOOP_ON_DISK1_PEG3-2)
+CLEAR_DISK2-3
+(NOT MOVEDISK_DISK1_PEG2_DISK2-2)
+(NOT ON_DISK1_DISK2-3)
 (NOT MOVEDISK_DISK1_PEG3_DISK2-2)
-(NOT ON_DISK1_PEG3-1)
-(NOT MOVEDISK_DISK1_DISK2_PEG3-1)
-NOOP_CLEAR_PEG3-1
-CLEAR_PEG3-1
+(NOT ON_DISK1_PEG3-2)
 (NOT MOVEDISK_DISK2_PEG2_PEG3-3)
-SMALLER_DISK1_PEG2-0
-SMALLER_DISK1_PEG3-0
-SMALLER_DISK1_DISK2-0
-ON_DISK1_DISK2-0
-CLEAR_DISK1-0
-ON_DISK2_PEG1-0
-SMALLER_DISK2_PEG3-0
+(NOT MOVEDISK_DISK2_PEG2_PEG1-3)
+(NOT ON_DISK2_PEG2-3)
+CLEAR_PEG3-2
+(NOT MOVEDISK_DISK1_DISK2_PEG3-1)
+(NOT MOVEDISK_DISK1_DISK2_PEG3-2)
+(NOT MOVEDISK_DISK1_PEG3_PEG2-2)
+(NOT MOVEDISK_DISK1_DISK2_PEG2-2)
+(NOT MOVEDISK_DISK2_PEG1_PEG2-2)
+(NOT ON_DISK1_DISK2-2)
+(NOT CLEAR_PEG2-2)
+CLEAR_DISK2-2
+MOVEDISK_DISK1_DISK2_PEG2-1
+ON_DISK1_PEG2-2
+CLEAR_PEG2-4
+(NOT MOVEDISK_DISK2_PEG1_PEG2-3)
+(NOT ON_DISK2_PEG2-4)
+(NOT MOVEDISK_DISK1_PEG3_PEG1-3)
+(NOT MOVEDISK_DISK1_PEG3_PEG2-3)
+(NOT MOVEDISK_DISK1_PEG3_DISK2-3)
+(NOT CLEAR_PEG3-4)
+(NOT ON_DISK2_DISK1-4)
+(NOT SMALLER_DISK1_DISK1-4)
+CLEAR_DISK1-4
+(NOT SMALLER_PEG3_PEG1-4)
+(NOT SMALLER_PEG3_PEG1-3)
+(NOT SMALLER_PEG3_DISK1-4)
+(NOT SMALLER_PEG3_DISK1-3)
+(NOT SMALLER_PEG2_PEG2-4)
+(NOT SMALLER_PEG2_PEG2-3)
+(NOT SMALLER_PEG2_DISK2-4)
+(NOT SMALLER_PEG2_DISK2-3)
+(NOT SMALLER_PEG1_PEG3-4)
+(NOT SMALLER_PEG1_PEG3-3)
+(NOT SMALLER_PEG1_PEG1-4)
+(NOT SMALLER_PEG1_PEG1-3)
+(NOT SMALLER_PEG1_DISK1-4)
+(NOT SMALLER_PEG1_DISK1-3)
+SMALLER_DISK2_PEG2-4
+SMALLER_DISK2_PEG2-3
+(NOT SMALLER_DISK2_DISK2-4)
+(NOT SMALLER_DISK2_DISK2-3)
+(NOT SMALLER_PEG3_PEG3-4)
+(NOT SMALLER_DISK1_DISK1-3)
+(NOT MOVEDISK_DISK2_DISK1_PEG2-3)
+(NOT MOVEDISK_DISK2_DISK1_PEG1-3)
+(NOT MOVEDISK_DISK2_DISK1_PEG3-3)
+(NOT ON_DISK2_DISK1-3)
+(NOT MOVEDISK_DISK1_PEG1_PEG2-3)
+(NOT MOVEDISK_DISK1_PEG1_DISK2-3)
+(NOT MOVEDISK_DISK1_PEG1_PEG3-3)
+(NOT ON_DISK1_PEG1-3)
+(NOT SMALLER_PEG3_PEG3-3)
+CLEAR_DISK1-3
+(NOT SMALLER_PEG3_PEG2-4)
+(NOT SMALLER_PEG3_PEG3-2)
+(NOT SMALLER_PEG3_PEG2-3)
+(NOT SMALLER_PEG3_PEG2-2)
+(NOT SMALLER_PEG3_DISK2-4)
+(NOT SMALLER_PEG3_PEG1-2)
+(NOT SMALLER_PEG3_DISK2-3)
+(NOT SMALLER_PEG3_DISK2-2)
+(NOT SMALLER_PEG2_PEG3-4)
+(NOT SMALLER_PEG3_DISK1-2)
+(NOT SMALLER_PEG2_PEG3-3)
+(NOT SMALLER_PEG2_PEG3-2)
+(NOT SMALLER_PEG2_PEG1-4)
+(NOT SMALLER_PEG2_PEG2-2)
+(NOT SMALLER_PEG2_PEG1-3)
+(NOT SMALLER_PEG2_PEG1-2)
+(NOT SMALLER_PEG2_DISK1-4)
+(NOT SMALLER_PEG2_DISK2-2)
+(NOT SMALLER_PEG2_DISK1-3)
+(NOT SMALLER_PEG2_DISK1-2)
+(NOT SMALLER_PEG1_PEG2-4)
+(NOT SMALLER_PEG1_PEG3-2)
+(NOT SMALLER_PEG1_PEG2-3)
+(NOT SMALLER_PEG1_PEG2-2)
+(NOT SMALLER_PEG1_DISK2-4)
+(NOT SMALLER_PEG1_PEG1-2)
+(NOT SMALLER_PEG1_DISK2-3)
+(NOT SMALLER_PEG1_DISK2-2)
+SMALLER_DISK2_PEG3-4
+(NOT SMALLER_PEG1_DISK1-2)
+SMALLER_DISK2_PEG3-3
+SMALLER_DISK2_PEG3-2
+SMALLER_DISK2_PEG1-4
+SMALLER_DISK2_PEG2-2
+SMALLER_DISK2_PEG1-3
+SMALLER_DISK2_PEG1-2
+SMALLER_DISK1_DISK2-4
+(NOT SMALLER_DISK2_DISK2-2)
+(NOT MOVEDISK_DISK2_PEG3_PEG2-2)
+(NOT ON_DISK2_PEG3-2)
+(NOT MOVEDISK_DISK2_PEG2_PEG3-2)
+(NOT ON_DISK2_PEG2-2)
+SMALLER_DISK1_DISK2-3
+ON_DISK2_PEG1-2
+SMALLER_DISK1_PEG1-4
+(NOT MOVEDISK_DISK2_DISK1_PEG2-2)
+(NOT MOVEDISK_DISK2_DISK1_PEG3-2)
+(NOT ON_DISK2_DISK1-2)
+(NOT MOVEDISK_DISK1_PEG1_PEG2-2)
+(NOT MOVEDISK_DISK1_PEG1_DISK2-2)
+(NOT MOVEDISK_DISK1_PEG1_PEG3-2)
+(NOT ON_DISK1_PEG1-2)
+SMALLER_DISK1_PEG1-3
+(NOT MOVEDISK_DISK1_PEG3_PEG1-2)
+(NOT MOVEDISK_DISK2_DISK1_PEG1-2)
+(NOT MOVEDISK_DISK1_PEG2_PEG1-2)
+(NOT MOVEDISK_DISK2_PEG2_PEG1-2)
+(NOT MOVEDISK_DISK1_DISK2_PEG1-2)
+(NOT MOVEDISK_DISK2_PEG3_PEG1-2)
+(NOT CLEAR_PEG1-2)
+SMALLER_DISK1_PEG2-4
+CLEAR_DISK1-2
+SMALLER_DISK1_PEG2-3
+(NOT ON_DISK2_PEG3-1)
+SMALLER_DISK1_PEG3-4
+ON_DISK2_PEG1-1
+(NOT MOVEDISK_DISK1_PEG3_PEG2-1)
+(NOT ON_DISK1_PEG3-1)
+(NOT MOVEDISK_DISK1_PEG2_PEG3-1)
+(NOT ON_DISK1_PEG2-1)
+SMALLER_DISK1_PEG3-3
+CLEAR_PEG3-1
+(NOT SMALLER_DISK2_DISK1-4)
+CLEAR_PEG2-1
+(NOT MOVEDISK_DISK1_PEG2_PEG1-1) 
+(NOT MOVEDISK_DISK1_DISK2_PEG1-1)
+(NOT MOVEDISK_DISK1_PEG3_PEG1-1)
+(NOT CLEAR_PEG1-1)
+(NOT MOVEDISK_DISK2_PEG2_DISK1-3)
+(NOT MOVEDISK_DISK2_PEG1_DISK1-3)
+(NOT SMALLER_DISK2_DISK1-3)
+CLEAR_DISK1-1
+(NOT MOVEDISK_DISK2_PEG1_PEG3-1)
+(NOT MOVEDISK_DISK2_PEG1_PEG2-1)
+(NOT MOVEDISK_DISK2_PEG3_PEG1-1)
+(NOT MOVEDISK_DISK1_PEG3_DISK2-1)
+(NOT MOVEDISK_DISK2_PEG3_PEG2-1)
+(NOT MOVEDISK_DISK1_PEG2_DISK2-1)
+CLEAR_DISK1-0 
+(NOT CLEAR_DISK2-1)
+(NOT CLEAR_DISK2-0)
+(NOT MOVEDISK_DISK1_PEG1_PEG3-1)
+(NOT CLEAR_PEG1-0)
+(NOT MOVEDISK_DISK1_PEG1_PEG2-1
 CLEAR_PEG2-0
-SMALLER_DISK2_PEG2-0
-ON_DISK1_DISK2-3
+(NOT MOVEDISK_DISK1_PEG1_DISK2-1)
 CLEAR_PEG3-0
-ON_DISK2_PEG3-3)
+(NOT ON_DISK1_PEG1-1)
+(NOT ON_DISK1_DISK1-0)
+ON_DISK1_DISK2-1
+ON_DISK1_DISK2-0
+(NOT MOVEDISK_DISK2_DISK1_PEG3-1)
+(NOT ON_DISK1_PEG1-0)
+(NOT MOVEDISK_DISK2_DISK1_PEG2-1)
+(NOT ON_DISK1_PEG2-0)
+(NOT MOVEDISK_DISK2_DISK1_PEG1-1)
+(NOT ON_DISK1_PEG3-0)
+(NOT ON_DISK2_DISK1-1)
+(NOT ON_DISK2_DISK1-0)
+(NOT MOVEDISK_DISK2_PEG2_PEG3-1)
+(NOT ON_DISK2_DISK2-0)
+(NOT MOVEDISK_DISK2_PEG2_PEG1-1)
+ON_DISK2_PEG1-0
+(NOT ON_DISK2_PEG2-1)
+(NOT ON_DISK2_PEG2-0)
+(NOT MOVEDISK_DISK2_PEG3_DISK1-2)
+(NOT ON_DISK2_PEG3-0)
+(NOT MOVEDISK_DISK2_PEG2_DISK1-2)
+(NOT ON_PEG1_DISK1-0)
+(NOT MOVEDISK_DISK2_PEG1_DISK1-2)
+(NOT ON_PEG1_DISK2-0)
+(NOT SMALLER_DISK2_DISK1-2)
+(NOT ON_PEG1_PEG1-0)
+SMALLER_DISK1_PEG3-2
+(NOT ON_PEG1_PEG2-0)
+SMALLER_DISK1_PEG2-2
+(NOT ON_PEG1_PEG3-0)
+SMALLER_DISK1_PEG1-2
+(NOT ON_PEG2_DISK1-0)
+SMALLER_DISK1_DISK2-2
+(NOT ON_PEG2_DISK2-0)
+(NOT SMALLER_DISK1_DISK1-2)
+(NOT ON_PEG2_PEG1-0)
+(NOT SMALLER_PEG3_PEG3-1)
+(NOT ON_PEG2_PEG2-0)
+(NOT SMALLER_PEG3_PEG2-1)
+(NOT ON_PEG2_PEG3-0)
+(NOT SMALLER_PEG3_PEG1-1)
+(NOT ON_PEG3_DISK1-0)
+(NOT SMALLER_PEG3_DISK2-1)
+(NOT ON_PEG3_DISK2-0)
+SMALLER_DISK1_PEG3-1
+(NOT ON_PEG3_PEG1-0)
+SMALLER_DISK1_PEG2-1
+(NOT ON_PEG3_PEG2-0)
+SMALLER_DISK1_PEG1-1
+(NOT ON_PEG3_PEG3-0)
+(NOT SMALLER_DISK1_DISK1-1)
+(NOT SMALLER_DISK1_DISK1-0)
+SMALLER_DISK1_DISK2-1
+SMALLER_DISK1_DISK2-0
+(NOT MOVEDISK_DISK2_PEG3_DISK1-1)
+SMALLER_DISK1_PEG1-0
+(NOT MOVEDISK_DISK2_PEG2_DISK1-1)
+SMALLER_DISK1_PEG2-0
+(NOT MOVEDISK_DISK2_PEG1_DISK1-1)
+SMALLER_DISK1_PEG3-0
+(NOT SMALLER_DISK2_DISK1-1)
+(NOT SMALLER_DISK2_DISK1-0)
+(NOT SMALLER_DISK2_DISK2-1)
+(NOT SMALLER_DISK2_DISK2-0)
+SMALLER_DISK2_PEG1-1
+SMALLER_DISK2_PEG1-0
+SMALLER_DISK2_PEG2-1
+SMALLER_DISK2_PEG2-0
+SMALLER_DISK2_PEG3-1
+SMALLER_DISK2_PEG3-0
+(NOT SMALLER_PEG1_DISK1-1)
+(NOT SMALLER_PEG1_DISK1-0)
+(NOT SMALLER_PEG1_DISK2-1)
+(NOT SMALLER_PEG1_DISK2-0)
+(NOT SMALLER_PEG1_PEG1-1)
+(NOT SMALLER_PEG1_PEG1-0)
+(NOT SMALLER_PEG1_PEG2-1)
+(NOT SMALLER_PEG1_PEG2-0)
+(NOT SMALLER_PEG1_PEG3-1)
+(NOT SMALLER_PEG1_PEG3-0)
+(NOT SMALLER_PEG2_DISK1-1)
+(NOT SMALLER_PEG2_DISK1-0)
+(NOT SMALLER_PEG2_DISK2-1)
+(NOT SMALLER_PEG2_DISK2-0)
+(NOT SMALLER_PEG2_PEG1-1)
+(NOT SMALLER_PEG2_PEG1-0)
+(NOT SMALLER_PEG2_PEG2-1)
+(NOT SMALLER_PEG2_PEG2-0)
+(NOT SMALLER_PEG2_PEG3-1)
+(NOT SMALLER_PEG2_PEG3-0)
+(NOT SMALLER_PEG3_DISK1-1)
+(NOT SMALLER_PEG3_DISK1-0)
+(NOT MOVEDISK_DISK2_PEG3_PEG2-3)
+(NOT SMALLER_PEG3_DISK2-0)
+(NOT MOVEDISK_DISK2_PEG3_PEG1-3)
+(NOT SMALLER_PEG3_PEG1-0)
+(NOT MOVEDISK_DISK1_DISK2_PEG3-3)
+(NOT SMALLER_PEG3_PEG2-0)
+(NOT MOVEDISK_DISK1_DISK2_PEG2-3)
+(NOT SMALLER_PEG3_PEG3-0)
+(NOT MOVEDISK_DISK1_DISK2_PEG1-3)
+ON_DISK1_DISK2-4
+(NOT MOVEDISK_DISK2_PEG3_DISK1-3)
+ON_DISK2_PEG3-4
+
 
 \end{lstlisting}
 \item What is the corresponding plan?
 \begin{lstlisting}[language=pddl, style=pddlstyle,
   basicstyle=\scriptsize]
-(MOVEDISK_DISK1_DISK2_PEG2)
-(MOVEDISK_DISK2_PEG1_PEG3)
-(MOVEDISK_DISK1_PEG2_DISK2)
+MOVEDISK_DISK1_DISK2_PEG2-1
+MOVEDISK_DISK2_PEG1_PEG3-2
+MOVEDISK_DISK1_PEG2_DISK2-3
 \end{lstlisting}
     \end{enumerate}
 
